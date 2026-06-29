@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>布面刺绣笔记本定制 — AI 刘小排诊断卡片</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@400;500;700&display=swap');
+
+  :root {
+    --bg: #f7f5f0;
+    --card: #ffffff;
+    --ink: #1a1a1a;
+    --sub: #555;
+    --accent: #b8860b;
+    --accent-bg: #fdf8ec;
+    --danger: #c0392b;
+    --danger-bg: #fdf0ee;
+    --line: #e0ddd5;
+    --tag: #e8e4d9;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    font-family: 'Noto Sans SC', sans-serif;
+    color: var(--ink);
+    line-height: 1.8;
+    padding: 40px 20px;
+  }
+
+  .container {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .header {
+    text-align: center;
+    margin-bottom: 48px;
+    padding-bottom: 32px;
+    border-bottom: 2px solid var(--ink);
+  }
+
+  .header .brand {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 13px;
+    letter-spacing: 4px;
+    color: var(--sub);
+    margin-bottom: 16px;
+    text-transform: uppercase;
+  }
+
+  .header h1 {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 28px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+  }
+
+  .verdict {
+    display: inline-block;
+    background: var(--ink);
+    color: #fff;
+    padding: 8px 24px;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    border-radius: 2px;
+  }
+
+  .verdict-desc {
+    margin-top: 20px;
+    font-size: 15px;
+    color: var(--sub);
+    line-height: 1.9;
+  }
+
+  .section {
+    background: var(--card);
+    margin-bottom: 20px;
+    padding: 28px 32px;
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--accent);
+    border-radius: 2px;
+  }
+
+  .section.danger {
+    border-left-color: var(--danger);
+    background: var(--danger-bg);
+  }
+
+  .section.action {
+    border-left-color: var(--ink);
+    background: #fafafa;
+  }
+
+  .section.question {
+    border-left-color: var(--sub);
+    background: var(--tag);
+    border-style: dashed;
+    border-left-style: solid;
+  }
+
+  .section h2 {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .section h2 .icon {
+    font-size: 18px;
+  }
+
+  .section p {
+    font-size: 15px;
+    color: var(--ink);
+    line-height: 1.9;
+  }
+
+  .section p + p {
+    margin-top: 10px;
+  }
+
+  .section .sub {
+    color: var(--sub);
+    font-size: 14px;
+  }
+
+  .price-box {
+    display: flex;
+    gap: 16px;
+    margin: 16px 0;
+    flex-wrap: wrap;
+  }
+
+  .price-item {
+    flex: 1;
+    min-width: 200px;
+    background: var(--accent-bg);
+    padding: 16px 20px;
+    border: 1px solid #f0e6c8;
+    border-radius: 4px;
+  }
+
+  .price-item .label {
+    font-size: 12px;
+    color: var(--sub);
+    margin-bottom: 6px;
+    letter-spacing: 1px;
+  }
+
+  .price-item .value {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--accent);
+  }
+
+  .price-item .note {
+    font-size: 13px;
+    color: var(--sub);
+    margin-top: 4px;
+  }
+
+  .quote-box {
+    background: var(--accent-bg);
+    border: 1px solid #f0e6c8;
+    border-radius: 4px;
+    padding: 20px 24px;
+    margin: 12px 0;
+    font-size: 14px;
+    line-height: 2;
+    color: var(--ink);
+    position: relative;
+  }
+
+  .quote-box::before {
+    content: '"';
+    position: absolute;
+    top: -8px;
+    left: 12px;
+    font-family: 'Noto Serif SC', serif;
+    font-size: 40px;
+    color: var(--accent);
+    opacity: 0.4;
+  }
+
+  .redline-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .redline-list li {
+    padding: 8px 0 8px 24px;
+    font-size: 14px;
+    position: relative;
+    color: var(--ink);
+  }
+
+  .redline-list li::before {
+    content: '×';
+    position: absolute;
+    left: 0;
+    color: var(--danger);
+    font-weight: 700;
+    font-size: 16px;
+  }
+
+  .action-box {
+    background: var(--ink);
+    color: #fff;
+    padding: 20px 24px;
+    border-radius: 4px;
+    margin: 12px 0;
+    font-size: 15px;
+    line-height: 2;
+  }
+
+  .action-box strong {
+    color: #ffd700;
+  }
+
+  .footer {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+    font-family: 'Noto Serif SC', serif;
+    font-size: 14px;
+    color: var(--sub);
+    letter-spacing: 2px;
+  }
+
+  .footer .date {
+    margin-bottom: 8px;
+  }
+
+  .footer .motto {
+    font-size: 13px;
+    opacity: 0.7;
+  }
+
+  .step-list {
+    list-style: none;
+    counter-reset: step;
+    padding: 0;
+  }
+
+  .step-list li {
+    counter-increment: step;
+    padding: 10px 0 10px 36px;
+    font-size: 14px;
+    position: relative;
+    color: var(--ink);
+    line-height: 1.8;
+  }
+
+  .step-list li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 24px;
+    height: 24px;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 24px;
+    font-family: 'Noto Sans SC', sans-serif;
+  }
+
+  .tag {
+    display: inline-block;
+    background: var(--tag);
+    color: var(--sub);
+    padding: 2px 10px;
+    font-size: 12px;
+    border-radius: 2px;
+    margin-right: 6px;
+  }
+
+  @media (max-width: 600px) {
+    body { padding: 20px 12px; }
+    .header h1 { font-size: 22px; }
+    .section { padding: 20px; }
+    .price-item { min-width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="brand">AI 刘小排 · Idea 诊断卡片</div>
+    <h1>布面刺绣笔记本定制</h1>
+    <div class="verdict">可以立刻试</div>
+    <div class="verdict-desc">
+      你有生产线、打样 1 小时/本、材料 9 元——这是碾压级优势。<br>
+      但别从"工艺差异化"出发，从"谁会买单"出发。
+    </div>
+  </div>
+
+  <!-- 那个人是谁 -->
+  <div class="section">
+    <h2><span class="icon">🎯</span> 那个人是谁</h2>
+    <p>你关注的小红书插画师。她有粉丝、有代表作、想做周边但卡在找不到厂。</p>
+    <p class="sub">她不是"文创消费群体"，是一个具体的、你叫得出作品名的人。</p>
+  </div>
+
+  <!-- 她遇到的具体问题 -->
+  <div class="section">
+    <h2><span class="icon">📌</span> 她遇到的具体问题</h2>
+    <p>她画很受欢迎，粉丝问"有没有周边"，但她要么找不到靠谱的工厂，要么起订量太高、打样太慢。她想卖一本有自己画的笔记本，但卡在生产端。</p>
+  </div>
+
+  <!-- 她现在怎么凑合 -->
+  <div class="section">
+    <h2><span class="icon">🧩</span> 她现在怎么凑合 + 付出的代价</h2>
+    <p>要么不做周边（错失变现机会），要么找淘宝小厂（质量不可控、沟通成本高、打样周期长），要么自己手工做（产能天花板极低）。</p>
+    <p class="sub">代价是：明明有流量，却变不了现。</p>
+  </div>
+
+  <!-- 第一笔钱 -->
+  <div class="section">
+    <h2><span class="icon">💰</span> 第一笔钱</h2>
+    <p>代工模式：你生产，插画师卖，一单一结。</p>
+    <div class="price-box">
+      <div class="price-item">
+        <div class="label">你的加工费</div>
+        <div class="value">35-45 元/本</div>
+        <div class="note">材料 9 元，剩余覆盖人工+利润</div>
+      </div>
+      <div class="price-item">
+        <div class="label">插画师零售价</div>
+        <div class="value">68-98 元/本</div>
+        <div class="note">她有足够利润空间才有动力推</div>
+      </div>
+    </div>
+    <p class="sub">第一笔目标：2-3 个插画师各下一小单（10-30 本）。</p>
+  </div>
+
+  <!-- 找到她 -->
+  <div class="section">
+    <h2><span class="icon">📡</span> 找到她</h2>
+    <p>第一批 <strong>5 个插画师</strong>，从小红书私信开始——你已经关注的人，不是陌生人。</p>
+    <ol class="step-list">
+      <li>做 10 本样品（用插画师已发过的代表作图案直接打样，验证手感不卖）</li>
+      <li>拍照：工艺特写 + 和皮革烫金笔记本的对比照</li>
+      <li>私信 5 个人，附上照片</li>
+      <li>寄样品给有回复的人</li>
+      <li>等她拿到实物的反应——主动问价就是真有戏</li>
+    </ol>
+  </div>
+
+  <!-- 私信话术 -->
+  <div class="section">
+    <h2><span class="icon">✉️</span> 私信话术模板</h2>
+    <div class="quote-box">
+      你好，关注你很久了，特别喜欢你的 XX 系列。我是做笔记本工厂的，手上有一条布面刺绣工艺的产线。想问一下你有没有兴趣出一款周边笔记本？我可以免费打样寄给你看实物，图你出，生产我包，你那边挂出来卖就行。不收打样费，合作方式都可以聊。
+    </div>
+    <p class="sub">三个关键点：叫得出对方作品名 · 一上来就说免费打样 · 结尾是"都可以聊"不是"你来定"。</p>
+  </div>
+
+  <!-- 最危险的假设 -->
+  <div class="section danger">
+    <h2><span class="icon">⚠️</span> 最危险的假设</h2>
+    <p>"封面用布+刺绣"这个差异化点，是<strong>用户的购买理由</strong>，不是你的<strong>生产卖点</strong>。</p>
+    <p>如果插画师的粉丝不为这个买单，问题不在工艺，在别处。</p>
+  </div>
+
+  <!-- 这周做什么 -->
+  <div class="section action">
+    <h2><span class="icon">🚀</span> 这周做什么（一条最狠的）</h2>
+    <div class="action-box">
+      做 <strong>10 本样品</strong>——用你关注插画师已发过的代表作图案直接打样（不需要授权，验证手感不卖）。拍照（工艺特写 + 和皮革烫金对比照）。然后带着照片私信 <strong>5 个人</strong>，话术："我已经用你的 XX 那张图打了个样品，你看一下效果。"
+    </div>
+    <p class="sub" style="margin-top:12px;">同步做的事：把小红书账号养起来，发 3-5 条工厂实拍内容（车间、刺绣工艺细节、成品效果），让插画师点进你主页时看到你是真有厂、真有货。</p>
+  </div>
+
+  <!-- 定价三条红线 -->
+  <div class="section">
+    <h2><span class="icon">🚫</span> 定价三条红线</h2>
+    <ul class="redline-list">
+      <li>不按成本倍率定（工厂思维，不是品牌思维）</li>
+      <li>不跟同行皮面烫金比价（你是差异化品，比价就输了）</li>
+      <li>不搞梯度套餐（复杂定价拦住冲动消费）</li>
+    </ul>
+    <p style="margin-top:12px; font-weight:700;">一口价，先跑起来。</p>
+  </div>
+
+  <!-- 留给你的问题 -->
+  <div class="section question">
+    <h2><span class="icon">🤔</span> 我还想问你</h2>
+    <p>如果第一个插画师拿到样品以后说"好看，但我粉丝可能不会买"——你怎么办？</p>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="date">2026-06-30</div>
+    <div class="motto">做产品不是想清楚的，是试清楚的。与君共勉。</div>
+  </div>
+
+</div>
+
+</body>
+</html>
