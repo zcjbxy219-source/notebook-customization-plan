@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>拾锦 · 品牌全案 Phase 3 · 战略执行方案</title>
+<style>
+  :root {
+    --ink: #2b2b2b;
+    --ink-light: #555;
+    --jin: #8b6f47;
+    --jin-dark: #6b5436;
+    --jin-light: #c4a882;
+    --cream: #faf7f2;
+    --cream-dark: #f0ebe2;
+    --border: #e5ddd0;
+    --accent: #8b6f47;
+    --red-seal: #a8453a;
+    --bg: #faf7f2;
+    --card: #ffffff;
+    --shadow: 0 1px 3px rgba(139,111,71,0.08);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: "PingFang SC","Noto Sans SC","Microsoft YaHei",sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.85;
+    font-size: 15px;
+  }
+  .hero {
+    background: linear-gradient(135deg, #6b5436 0%, #8b6f47 50%, #a08562 100%);
+    color: #fff;
+    padding: 80px 24px 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(255,255,255,0.02) 20px, rgba(255,255,255,0.02) 21px);
+  }
+  .hero h1 { font-size: 36px; font-weight: 700; letter-spacing: 4px; position: relative; }
+  .hero .en { font-size: 14px; letter-spacing: 6px; opacity: 0.7; margin-top: 8px; position: relative; }
+  .hero .slogan { font-size: 16px; margin-top: 20px; opacity: 0.85; letter-spacing: 2px; position: relative; }
+  .hero .meta { font-size: 13px; margin-top: 16px; opacity: 0.5; position: relative; }
+  .container { max-width: 860px; margin: 0 auto; padding: 0 20px; }
+
+  .section { margin: 48px 0; }
+  .section-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--jin-dark);
+    margin-bottom: 8px;
+    padding-left: 16px;
+    border-left: 4px solid var(--jin);
+    letter-spacing: 2px;
+  }
+  .section-sub {
+    font-size: 13px;
+    color: var(--ink-light);
+    margin-bottom: 24px;
+    padding-left: 20px;
+  }
+
+  .card {
+    background: var(--card);
+    border-radius: 12px;
+    padding: 28px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+  }
+  .card h3 {
+    font-size: 18px;
+    color: var(--jin-dark);
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+  }
+  .card h4 {
+    font-size: 15px;
+    color: var(--ink);
+    margin: 16px 0 8px;
+    font-weight: 600;
+  }
+  .card p { margin-bottom: 10px; color: var(--ink-light); }
+  .card ul, .card ol { margin: 8px 0 12px 20px; }
+  .card li { margin-bottom: 6px; color: var(--ink-light); }
+
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+  @media(max-width:640px) {
+    .grid-2, .grid-3 { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 28px; }
+  }
+
+  .color-swatch {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    border-radius: 8px;
+    background: var(--cream-dark);
+    margin-bottom: 10px;
+  }
+  .swatch-block {
+    width: 56px;
+    height: 56px;
+    border-radius: 8px;
+    flex-shrink: 0;
+    border: 1px solid var(--border);
+  }
+  .swatch-info { flex: 1; }
+  .swatch-info .name { font-weight: 600; font-size: 14px; color: var(--ink); }
+  .swatch-info .hex { font-size: 13px; color: var(--ink-light); font-family: monospace; }
+  .swatch-info .desc { font-size: 12px; color: var(--ink-light); margin-top: 2px; }
+
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 14px; }
+  th { background: var(--jin); color: #fff; padding: 10px 12px; text-align: left; font-weight: 600; }
+  td { padding: 10px 12px; border-bottom: 1px solid var(--border); color: var(--ink-light); }
+  tr:nth-child(even) td { background: var(--cream); }
+
+  .tag {
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-right: 6px;
+  }
+  .tag-jin { background: var(--jin-light); color: #fff; }
+  .tag-cream { background: var(--cream-dark); color: var(--jin-dark); }
+  .tag-red { background: var(--red-seal); color: #fff; }
+  .tag-green { background: #5a7a5a; color: #fff; }
+
+  .timeline { position: relative; padding-left: 32px; }
+  .timeline::before {
+    content: "";
+    position: absolute;
+    left: 10px; top: 8px; bottom: 8px;
+    width: 2px;
+    background: var(--jin-light);
+  }
+  .timeline-item { position: relative; margin-bottom: 24px; }
+  .timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -28px; top: 6px;
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    background: var(--jin);
+    border: 3px solid var(--cream);
+  }
+  .timeline-item .time { font-size: 13px; font-weight: 700; color: var(--jin-dark); }
+  .timeline-item .content { margin-top: 6px; }
+
+  .highlight-box {
+    background: linear-gradient(135deg, var(--cream) 0%, var(--cream-dark) 100%);
+    border-left: 4px solid var(--jin);
+    padding: 20px 24px;
+    border-radius: 0 8px 8px 0;
+    margin: 16px 0;
+  }
+  .highlight-box strong { color: var(--jin-dark); }
+
+  .price-card {
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    text-align: center;
+    margin-bottom: 12px;
+    background: var(--card);
+    transition: transform 0.2s;
+  }
+  .price-card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(139,111,71,0.12); }
+  .price-card .level { font-size: 13px; color: var(--ink-light); letter-spacing: 2px; }
+  .price-card .price { font-size: 28px; font-weight: 700; color: var(--jin-dark); margin: 8px 0; }
+  .price-card .desc { font-size: 13px; color: var(--ink-light); }
+
+  .checklist {
+    background: var(--card);
+    border-radius: 8px;
+    padding: 20px 24px;
+    border: 1px solid var(--border);
+  }
+  .checklist li { list-style: none; margin-bottom: 8px; padding-left: 28px; position: relative; }
+  .checklist li::before {
+    content: "☐";
+    position: absolute;
+    left: 0;
+    color: var(--jin);
+    font-size: 18px;
+  }
+
+  .footer {
+    text-align: center;
+    padding: 40px 24px;
+    color: var(--ink-light);
+    font-size: 13px;
+    border-top: 1px solid var(--border);
+    margin-top: 48px;
+  }
+  .footer .seal {
+    display: inline-block;
+    width: 48px; height: 48px;
+    line-height: 48px;
+    text-align: center;
+    background: var(--red-seal);
+    color: #fff;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+  }
+
+  .number-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: var(--jin);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    margin-right: 8px;
+  }
+
+  .emoji-icon { font-size: 28px; margin-bottom: 8px; display: block; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>拾锦 · 战略执行方案</h1>
+  <div class="en">SHIJIN · STRATEGIC EXECUTION PLAN</div>
+  <div class="slogan">一寸锦绣，一页日常</div>
+  <div class="meta">Phase 3 · 2026.06 · 基于已确认的品牌名、创始人故事与价格带</div>
+</div>
+
+<div class="container">
+
+<!-- ========== 一、品牌视觉系统 ========== -->
+<div class="section">
+  <div class="section-title">一、品牌视觉系统（VI）</div>
+  <div class="section-sub">用视觉把"东方美学 × 现代极简"翻译成可感知的东西</div>
+
+  <div class="card">
+    <h3>1.1 Logo 设计方向</h3>
+    <p>拾锦的 Logo 不需要复杂的图形——简洁、克制、有东方韵味。给出三个方向，找设计师执行时择一深化：</p>
+
+    <div class="grid-3">
+      <div style="background:var(--cream);border-radius:8px;padding:20px;text-align:center;">
+        <span class="emoji-icon">📏</span>
+        <h4 style="margin-top:8px;">方向A：字体标</h4>
+        <p style="font-size:13px;">"拾锦"二字定制书法体或宋体变体，不加图形装饰。参考：观夏、UR。</p>
+      </div>
+      <div style="background:var(--cream);border-radius:8px;padding:20px;text-align:center;">
+        <span class="emoji-icon">🪡</span>
+        <h4 style="margin-top:8px;">方向B：刺绣针标</h4>
+        <p style="font-size:13px;">"拾锦"二字旁加一枚极简刺绣针孔符号（•），暗示工艺。参考：无印良品的方块。</p>
+      </div>
+      <div style="background:var(--cream);border-radius:8px;padding:20px;text-align:center;">
+        <span class="emoji-icon">🧵</span>
+        <h4 style="margin-top:8px;">方向C：织纹标</h4>
+        <p style="font-size:13px;">"拾锦"二字底部加一条极简织物纹理线，用烫印工艺出现在产品上。</p>
+      </div>
+    </div>
+
+    <div class="highlight-box">
+      <strong>执行建议：</strong>先做方向A（字体标），最快落地、成本最低。Logo 不需要一步到位，先用起来，产品跑通了再迭代。预算控制在 500-1500 元（找独立设计师，不走设计公司）。
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>1.2 品牌色彩系统</h3>
+    <p>色彩是品牌调性的第一触点。拾锦的色彩体系围绕"织物色"展开——所有颜色都来自真实布料的天然色：</p>
+
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#8b6f47;"></div>
+      <div class="swatch-info">
+        <div class="name">主色 · 拾锦棕</div>
+        <div class="hex">#8B6F47</div>
+        <div class="desc">来自亚麻本色染色后的色调，用于品牌主视觉、包装、Logo</div>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#6b5436;"></div>
+      <div class="swatch-info">
+        <div class="name">深色 · 织锦深棕</div>
+        <div class="hex">#6B5436</div>
+        <div class="desc">用于标题文字、深色背景、刺绣线色参考</div>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#faf7f2;"></div>
+      <div class="swatch-info">
+        <div class="name">底色 · 宣纸白</div>
+        <div class="hex">#FAF7F2</div>
+        <div class="desc">带微暖的白色，用于页面背景、包装内衬，模拟宣纸质感</div>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#a8453a;"></div>
+      <div class="swatch-info">
+        <div class="name">点缀色 · 朱砂印</div>
+        <div class="hex">#A8453A</div>
+        <div class="desc">用于印章、限量标、特殊版标识，用量极少但点睛</div>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#c4a882;"></div>
+      <div class="swatch-info">
+        <div class="name">辅色 · 浅锦棕</div>
+        <div class="hex">#C4A882</div>
+        <div class="desc">用于次级文字、分隔线、卡片背景</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>1.3 字体系统</h3>
+    <table>
+      <tr><th>用途</th><th>中文字体</th><th>英文字体</th><th>说明</th></tr>
+      <tr><td>品牌标题</td><td>思源宋体 Bold</td><td>Cormorant Garamond</td><td>宋体有东方韵味，衬线英文搭配古典感</td></tr>
+      <tr><td>正文</td><td>思源黑体 Regular</td><td>Inter Regular</td><td>保证可读性，现代感</td></tr>
+      <tr><td>数字/价格</td><td>思源宋体 Medium</td><td>Cormorant Garamond</td><td>价格用宋体，有仪式感</td></tr>
+      <tr><td>印章/限量</td><td>方正篆体</td><td>—</td><td>仅用于"限量""独一"等特殊标识</td></tr>
+    </table>
+    <p style="margin-top:12px;font-size:13px;">所有字体均为开源免费字体，零成本即可商用。</p>
+  </div>
+
+  <div class="card">
+    <h3>1.4 包装系统</h3>
+    <p>包装是品牌溢价的物理载体。材料9元的笔记本，包装多花2元，零售价能多撑20元。包装投入不是成本，是杠杆。</p>
+
+    <h4>标准包装（引流款 / 联名款）</h4>
+    <ul>
+      <li><strong>外层：</strong>牛皮纸套（120g本色牛皮纸），印拾锦Logo + Slogan，单色黑印</li>
+      <li><strong>内层：</strong>半透明硫酸纸包裹笔记本，防止布面摩擦</li>
+      <li><strong>感谢卡：</strong>100g米白色卡纸，正面印"一寸锦绣，一页日常"，背面手写编号 + 制作日期</li>
+      <li><strong>成本：</strong>约 1.5-2 元/套</li>
+    </ul>
+
+    <h4>定制款包装（定制款 / 限量款）</h4>
+    <ul>
+      <li><strong>外层：</strong>硬质牛皮纸盒（天地盖），盖面烫金Logo</li>
+      <li><strong>内层：</strong>黑色绒布内衬，笔记本嵌入固定</li>
+      <li><strong>专属卡：</strong>朱砂红印章卡，印客户名字 + "拾锦·独一"字样</li>
+      <li><strong>成本：</strong>约 3-4 元/套</li>
+    </ul>
+
+    <h4>寄给插画师的样品包装</h4>
+    <ul>
+      <li>用标准包装 + 手写便签一张："这是用你的XX图做的样品，看看手感。——拾锦"</li>
+      <li>手写便签的成本是0，但信任溢价极高</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>1.5 摄影风格指南</h3>
+    <div class="grid-2">
+      <div>
+        <h4>✅ 应该拍的</h4>
+        <ul>
+          <li>刺绣工艺特写（针线、纹理、细节）</li>
+          <li>自然光下的布面质感</li>
+          <li>桌面平铺场景（笔记本+茶具+钢笔+干花）</li>
+          <li>工厂车间实拍（真实、不修饰）</li>
+          <li>对比拍摄（布面刺绣 vs 皮革烫金）</li>
+        </ul>
+      </div>
+      <div>
+        <h4>❌ 不应该拍的</h4>
+        <ul>
+          <li>影楼棚拍（塑料感，掉价）</li>
+          <li>过度滤镜/磨皮（失去材质真实感）</li>
+          <li>纯白底商品图（无故事感）</li>
+          <li>模特手持摆拍（不真实）</li>
+          <li>花哨的道具堆砌（抢主体）</li>
+        </ul>
+      </div>
+    </div>
+    <p style="margin-top:12px;font-size:13px;color:var(--jin-dark);"><strong>核心原则：</strong>所有照片用手机拍即可，不需要专业相机。自然光 + 干净桌面 + 近距离特写 = 拾锦的视觉语言。</p>
+  </div>
+</div>
+
+<!-- ========== 二、产品线规划 ========== -->
+<div class="section">
+  <div class="section-title">二、产品线规划</div>
+  <div class="section-sub">三层产品结构，各司其职，从引流到品牌沉淀</div>
+
+  <div class="card">
+    <h3>2.1 产品架构</h3>
+    <div class="grid-3">
+      <div class="price-card">
+        <div class="level">引流款</div>
+        <div class="price">¥68-78</div>
+        <div class="desc">5款固定图案<br>节气系列：谷雨/白露/霜降/小满/芒种<br>现货发，走量拉排名</div>
+      </div>
+      <div class="price-card" style="border-color:var(--jin);">
+        <div class="level"><span class="tag tag-jin">利润核心</span></div>
+        <div class="price">¥88-108</div>
+        <div class="desc">插画师联名款<br>限量发售，每款限300本<br>编号收藏，品牌调性担当</div>
+      </div>
+      <div class="price-card">
+        <div class="level">定制款</div>
+        <div class="price">¥118-158</div>
+        <div class="desc">客户提供图案/文字<br>1对1刺绣定制<br>高客单、差异化壁垒</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>2.2 产品命名体系</h3>
+    <table>
+      <tr><th>层级</th><th>命名规则</th><th>示例</th><th>编号方式</th></tr>
+      <tr><td>引流款</td><td>拾锦 · [节气名]</td><td>拾锦·谷雨、拾锦·白露、拾锦·霜降</td><td>无编号，量产</td></tr>
+      <tr><td>联名款</td><td>拾锦 × [插画师名] · [作品名]</td><td>拾锦×阿璃·山海间、拾锦×木南·夜行</td><td>限量编号 001/300</td></tr>
+      <tr><td>定制款</td><td>拾锦 · 独一 · [客户名/日期]</td><td>拾锦·独一·陈小姐2026</td><td>独一编号，不重复</td></tr>
+      <tr><td>B端代工</td><td>不挂拾锦品牌（白牌）</td><td>—</td><td>—</td></tr>
+    </table>
+    <div class="highlight-box">
+      <strong>命名即内容：</strong>每个节气款发布时配一条"为什么这个节气配这个图案"的内容；每个联名款发布时配一条"插画师故事+制作过程"的内容。产品名本身就是传播素材。
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>2.3 刺绣图案适配指南</h3>
+    <p>这是给插画师和定制客户看的"说明书"，能省掉80%的沟通成本：</p>
+    <div class="grid-2">
+      <div>
+        <h4 style="color:#5a7a5a;">✅ 适合刺绣的图案</h4>
+        <ul style="color:#5a7a5a;">
+          <li>粗线条描边（线宽≥1mm）</li>
+          <li>色块分明的扁平插画</li>
+          <li>2-4色以内，色差明显</li>
+          <li>几何图案、植物纹样</li>
+          <li>简洁的动物/人物轮廓</li>
+          <li>书法字体、印章风格文字</li>
+        </ul>
+      </div>
+      <div>
+        <h4 style="color:var(--red-seal);">❌ 不适合刺绣的图案</h4>
+        <ul style="color:var(--red-seal);">
+          <li>渐变色、水彩效果</li>
+          <li>超细线条（线宽<0.5mm）</li>
+          <li>超过6色的复杂配色</li>
+          <li>照片级写实画面</li>
+          <li>极小的文字（<8pt）</li>
+          <li>大面积密集点阵</li>
+        </ul>
+      </div>
+    </div>
+    <p style="margin-top:12px;font-size:13px;">这份指南做成一页PDF，寄样品时一起发给插画师；定制客户咨询时直接发图片版本。</p>
+  </div>
+
+  <div class="card">
+    <h3>2.4 内页标准版设计</h3>
+    <p>内页统一，但不是完全空白——这是品牌沉淀的伏笔：</p>
+    <table>
+      <tr><th>页码</th><th>内容</th><th>说明</th></tr>
+      <tr><td>封面内页</td><td>拾锦Logo（水印）+ "一寸锦绣，一页日常"</td><td>品牌印记，每本都有</td></tr>
+      <tr><td>第1页</td><td>品牌故事（简短版，50字以内）</td><td>让用户翻开后知道这个品牌是谁</td></tr>
+      <tr><td>第2页</td><td>刺绣工艺说明 + "本本编号"</td><td>强化工艺价值感</td></tr>
+      <tr><td>第3-200页</td><td>标准书写页（横线/方格/空白三选）</td><td>实用性为主</td></tr>
+      <tr><td>末页</td><td>"这本笔记本的刺绣由拾锦工坊制作" + 联系方式</td><td>复购入口</td></tr>
+    </table>
+    <p style="margin-top:8px;font-size:13px;">内页统一印刷，成本几乎不变，但每本笔记本都带上了品牌印记——这是从代工走向品牌的关键一步。</p>
+  </div>
+
+  <div class="card">
+    <h3>2.5 刺绣线色库</h3>
+    <p>建立标准线色库，降低沟通成本、统一品牌调性：</p>
+    <table>
+      <tr><th>色系</th><th>色名</th><th>色号参考</th><th>适用场景</th></tr>
+      <tr><td rowspan="3">大地色系</td><td>亚麻原色</td><td>#D4C4A8</td><td>底布主色</td></tr>
+      <tr><td>深棕</td><td>#6B5436</td><td>主图案线条</td></tr>
+      <tr><td>浅咖</td><td>#A08562</td><td>次级线条</td></tr>
+      <tr><td rowspan="2">植物色系</td><td>竹青</td><td>#5A7A5A</td><td>植物纹样</td></tr>
+      <tr><td>靛蓝</td><td>#3A5A7A</td><td>传统纹样</td></tr>
+      <tr><td rowspan="2">点睛色系</td><td>朱砂红</td><td>#A8453A</td><td>印章、限量标识</td></tr>
+      <tr><td>月白</td><td>#E8E2D5</td><td>浅色布面用线</td></tr>
+    </table>
+    <p style="margin-top:8px;font-size:13px;">标准线色库共7色，覆盖大部分需求。特殊定制可增加色线，但每增加1色成本+1.5元，需向客户说明。</p>
+  </div>
+</div>
+
+<!-- ========== 三、内容策略 ========== -->
+<div class="section">
+  <div class="section-title">三、内容策略</div>
+  <div class="section-sub">内容是品牌的血液——没有内容，拾锦只是一个笔记本工厂</div>
+
+  <div class="card">
+    <h3>3.1 内容支柱（4根柱子撑起所有内容）</h3>
+    <div class="grid-2">
+      <div style="background:var(--cream);border-radius:8px;padding:20px;">
+        <h4>🪡 工艺之美</h4>
+        <p style="font-size:13px;">刺绣过程、针法细节、线色搭配、布料选择。核心信息：这不是印刷，是一针一线绣出来的。</p>
+      </div>
+      <div style="background:var(--cream);border-radius:8px;padding:20px;">
+        <h4>📝 日常仪式</h4>
+        <p style="font-size:13px;">书写场景、桌面搭配、手账内页展示、翻页体验。核心信息：笔记本是每天翻开的仪式。</p>
+      </div>
+      <div style="background:var(--cream);border-radius:8px;padding:20px;">
+        <h4>🏭 工厂即优势</h4>
+        <p style="font-size:13px;">车间实拍、生产过程、质检细节、外贸品质。核心信息：自有工厂，品质有保障。</p>
+      </div>
+      <div style="background:var(--cream);border-radius:8px;padding:20px;">
+        <h4>🎨 创作者故事</h4>
+        <p style="font-size:13px;">插画师合作故事、定制客户的笔记本故事、节气文化解读。核心信息：每本笔记本背后都有人。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>3.2 平台内容矩阵</h3>
+    <table>
+      <tr><th>平台</th><th>内容类型</th><th>频率</th><th>核心目标</th></tr>
+      <tr><td rowspan="4">抖音</td><td>刺绣过程ASMR（15-30秒）</td><td>3条/周</td><td>视觉冲击，建立工艺认知</td></tr>
+      <tr><td>成品展示+场景（30秒）</td><td>2条/周</td><td>种草，激发购买欲</td></tr>
+      <tr><td>工厂日常（15-30秒）</td><td>1条/周</td><td>信任建设</td></tr>
+      <tr><td>定制故事（30-60秒）</td><td>1条/周</td><td>情感连接，转化</td></tr>
+      <tr><td rowspan="4">小红书</td><td>工艺细节图文</td><td>2篇/周</td><td>种草，搜索截流</td></tr>
+      <tr><td>使用场景/手账分享</td><td>1篇/周</td><td>场景代入</td></tr>
+      <tr><td>送礼推荐</td><td>1篇/周</td><td>场景拓展</td></tr>
+      <tr><td>插画师合作笔记</td><td>1篇/周</td><td>IP联动，扩大圈层</td></tr>
+      <tr><td rowspan="2">淘宝</td><td>主图/详情页优化</td><td>持续</td><td>转化率提升</td></tr>
+      <tr><td>买家秀/评价引导</td><td>每单跟进</td><td>信任积累，搜索权重</td></tr>
+    </table>
+    <p style="margin-top:12px;font-size:13px;">初期每周产出约12条内容（抖音7条+小红书4篇+淘宝持续），全部自己拍自己写，不需要外包。</p>
+  </div>
+
+  <div class="card">
+    <h3>3.3 首月内容日历（可直接执行）</h3>
+    <table>
+      <tr><th>日期</th><th>平台</th><th>内容</th><th>内容支柱</th></tr>
+      <tr><td>Day 1</td><td>抖音+小红书</td><td>工厂实拍："做了十几年外贸笔记本，第一次做自己的品牌"</td><td>工厂即优势</td></tr>
+      <tr><td>Day 2</td><td>抖音</td><td>刺绣过程特写ASMR，封面文字"这不是印刷，这是真刺绣"</td><td>工艺之美</td></tr>
+      <tr><td>Day 3</td><td>小红书</td><td>布面刺绣 vs 皮革烫金对比图，"为什么我选了布"</td><td>工艺之美</td></tr>
+      <tr><td>Day 4</td><td>抖音</td><td>1小时打样挑战，从选图到成品加速播放</td><td>工艺之美</td></tr>
+      <tr><td>Day 5</td><td>小红书</td><td>桌面搭配场景：笔记本+茶具+钢笔，"秋天的第一本手账"</td><td>日常仪式</td></tr>
+      <tr><td>Day 6</td><td>抖音+小红书</td><td>拾锦·谷雨 样品展示，配节气文化解读</td><td>创作者故事</td></tr>
+      <tr><td>Day 7</td><td>抖音</td><td>工厂车间走一圈，"外贸品质，国内直供"</td><td>工厂即优势</td></tr>
+      <tr><td>Day 8</td><td>小红书</td><td>刺绣线色库展示，7色线+布样排列</td><td>工艺之美</td></tr>
+      <tr><td>Day 9</td><td>抖音</td><td>定制款制作全过程，客户名字被绣上去的瞬间</td><td>创作者故事</td></tr>
+      <tr><td>Day 10</td><td>小红书</td><td>送礼推荐："送一本不会撞款的笔记本"</td><td>日常仪式</td></tr>
+      <tr><td>Day 11</td><td>抖音</td><td>刺绣工艺对比：粗线条vs细线条效果差异</td><td>工艺之美</td></tr>
+      <tr><td>Day 12</td><td>小红书</td><td>内页展示，"翻开第一页看到的那句话"</td><td>日常仪式</td></tr>
+      <tr><td>Day 13</td><td>抖音</td><td>包装展示：牛皮纸套+硫酸纸+感谢卡开箱</td><td>工厂即优势</td></tr>
+      <tr><td>Day 14</td><td>抖音+小红书</td><td>两周复盘：收到了哪些反馈、改了什么</td><td>创作者故事</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>3.4 插画师合作内容模板</h3>
+    <p>每个联名款上线时，双方各发一条内容，形成交叉传播：</p>
+
+    <h4>拾锦发布（工厂视角）</h4>
+    <div style="background:var(--cream);border-radius:8px;padding:16px;margin:8px 0;">
+      <p style="font-size:14px;"><strong>标题：</strong>把@插画师名 的画绣到了笔记本上</p>
+      <p style="font-size:14px;"><strong>内容：</strong>三张图（原图→刺绣过程→成品对比）+ 一段话："看到@插画师名 的XX系列时就想试，绣出来比想象中更好看。布面的纹理让画面多了一层质感，这是屏幕上看不到的。限量300本，编号发售。"</p>
+      <p style="font-size:14px;"><strong>发布平台：</strong>抖音 + 小红书 + 淘宝详情页</p>
+    </div>
+
+    <h4>插画师发布（创作者视角）</h4>
+    <div style="background:var(--cream);border-radius:8px;padding:16px;margin:8px 0;">
+      <p style="font-size:14px;"><strong>标题：</strong>我的画变成了可以摸的笔记本</p>
+      <p style="font-size:14px;"><strong>内容：</strong>开箱实拍 + 手持展示 + "和@拾锦 合作了一款刺绣笔记本，布面刺绣的质感真的很不一样，粉丝专属链接在评论区。"</p>
+      <p style="font-size:14px;"><strong>发布平台：</strong>小红书（插画师主阵地）</p>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 四、渠道策略 ========== -->
+<div class="section">
+  <div class="section-title">四、渠道策略</div>
+  <div class="section-sub">不是一个渠道做一个渠道的事，是三个渠道做一个漏斗的事</div>
+
+  <div class="card">
+    <h3>4.1 渠道漏斗模型</h3>
+    <div style="text-align:center;padding:20px 0;">
+      <div style="display:inline-block;background:var(--jin-light);color:#fff;padding:12px 40px;border-radius:8px 8px 0 0;font-weight:600;">小红书 · 种草开口</div><br>
+      <div style="display:inline-block;width:4px;height:20px;background:var(--jin-light);"></div><br>
+      <div style="display:inline-block;background:var(--jin);color:#fff;padding:12px 60px;font-weight:600;">抖音 · 内容放大</div><br>
+      <div style="display:inline-block;width:4px;height:20px;background:var(--jin);"></div><br>
+      <div style="display:inline-block;background:var(--jin-dark);color:#fff;padding:12px 80px;border-radius:0 0 8px 8px;font-weight:600;">淘宝 · 搜索收单</div>
+    </div>
+    <p style="text-align:center;font-size:13px;color:var(--ink-light);">小红书制造兴趣 → 抖音放大认知 → 淘宝承接搜索成交</p>
+  </div>
+
+  <div class="card">
+    <h3>4.2 淘宝店运营（主力成交平台）</h3>
+
+    <h4>店铺基础</h4>
+    <ul>
+      <li><strong>店铺类型：</strong>企业店铺（用工厂营业执照）</li>
+      <li><strong>店铺名：</strong>拾锦官方店（品牌名+官方，信任感）</li>
+      <li><strong>类目：</strong>文具/笔记本 → 定制类目标签</li>
+      <li><strong>保证金：</strong>1000元（可退）</li>
+    </ul>
+
+    <h4>商品上架节奏</h4>
+    <table>
+      <tr><th>时间</th><th>上架商品</th><th>定价</th><th>直通车预算</th></tr>
+      <tr><td>Week 1</td><td>5款节气引流款</td><td>¥68-78</td><td>50元/天（长尾词测试）</td></tr>
+      <tr><td>Week 2</td><td>+ 1款定制链接</td><td>¥118起</td><td>80元/天</td></tr>
+      <tr><td>Week 3-4</td><td>+ 1-2款联名款</td><td>¥88-108</td><td>100-150元/天</td></tr>
+      <tr><td>Week 5-8</td><td>优化+补款</td><td>—</td><td>150-300元/天</td></tr>
+    </table>
+
+    <h4>标题关键词公式</h4>
+    <div style="background:var(--cream);border-radius:8px;padding:16px;margin:8px 0;">
+      <p style="font-size:14px;font-family:monospace;">[品牌名] + [工艺] + [品类] + [场景] + [属性]</p>
+      <p style="font-size:14px;margin-top:8px;"><strong>示例：</strong>拾锦 布面刺绣笔记本 定制手作日记本 送礼商务 个性封面</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>4.3 抖音运营（内容引擎）</h3>
+    <h4>账号搭建</h4>
+    <ul>
+      <li><strong>账号名：</strong>拾锦·刺绣笔记本（品牌名+品类，搜索友好）</li>
+      <li><strong>简介：</strong>"自有工厂 · 布面刺绣笔记本 · 1小时打样 | 让每一针都有温度"</li>
+      <li><strong>开店：</strong>抖音小店，商品挂橱窗</li>
+      <li><strong>抖音专供款：</strong>用不同图案SKU，定价略低于淘宝5-10元，避免跨平台比价</li>
+    </ul>
+
+    <h4>直播方案（Week 5起）</h4>
+    <table>
+      <tr><th>项目</th><th>方案</th></tr>
+      <tr><td>频率</td><td>每周2-3场，每场2-3小时</td></tr>
+      <tr><td>时段</td><td>晚 20:00-22:30（文创黄金时段）</td></tr>
+      <tr><td>核心环节</td><td><strong>现场刺绣展示</strong>——直播间放刺绣机，观众下单后现场绣名字/图案</td></tr>
+      <tr><td>产品排序</td><td>引流款开场暖场 → 联名款中段主推 → 定制款收尾高客单</td></tr>
+      <tr><td>互动设计</td><td>"扣1免费设计刺绣效果图"、"点赞到1万截屏送笔记本"</td></tr>
+    </table>
+    <div class="highlight-box">
+      <strong>杀手锏：</strong>直播间的核心卖点不是价格，是<strong>亲眼看刺绣过程</strong>。把刺绣机搬进直播间，比任何话术都管用。这是皮革烫金无法复制的体验。
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>4.4 小红书运营（种草阵地 + IP枢纽）</h3>
+    <h4>账号搭建</h4>
+    <ul>
+      <li><strong>账号名：</strong>拾锦手作笔记</li>
+      <li><strong>人设：</strong>手作笔记本工坊主理人</li>
+      <li><strong>简介：</strong>"布面刺绣笔记本 · 自有工厂 · 一寸锦绣一页日常 | 合作私信"</li>
+    </ul>
+
+    <h4>插画师合作6步流程</h4>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="time">Step 1 · 筛选</div>
+        <div class="content">粉丝1万-5万的插画师性价比最高。从你已关注的人开始，优先风格与拾锦调性匹配的（东方/植物/极简风）。</div>
+      </div>
+      <div class="timeline-item">
+        <div class="time">Step 2 · 私信触达</div>
+        <div class="content">用对方代表作图打样，拍照后私信："已用你的XX图打了样品，看看效果。免费打样，合作方式可聊。"</div>
+      </div>
+      <div class="timeline-item">
+        <div class="time">Step 3 · 寄样确认</div>
+        <div class="content">免费寄2-3本不同图案样品。附手写便签+刺绣适配指南。等对方实物反馈。</div>
+      </div>
+      <div class="timeline-item">
+        <div class="time">Step 4 · 确定合作模式</div>
+        <div class="content"><strong>初期走代工模式：</strong>你收加工费35-45元/本，插画师自定价卖给粉丝。模式最轻、风险最低。</div>
+      </div>
+      <div class="timeline-item">
+        <div class="time">Step 5 · 联名款上线</div>
+        <div class="content">插画师出图 → 你打样 → 双方确认 → 插画师发笔记预热 → 淘宝/微店上架。限量300本，编号发售。</div>
+      </div>
+      <div class="timeline-item">
+        <div class="time">Step 6 · 内容配合</div>
+        <div class="content">你发"制作过程"视角，插画师发"成品展示"视角，互相@。形成交叉传播。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>4.5 B端代工渠道（插画师专线）</h3>
+    <p>B端是起步阶段最高效的渠道——无广告费、无平台佣金、单位利润更高：</p>
+    <table>
+      <tr><th>项目</th><th>B端代工</th><th>B2C自营</th></tr>
+      <tr><td>单价</td><td>¥35-45（加工费）</td><td>¥68-158（零售价）</td></tr>
+      <tr><td>材料成本</td><td>¥9</td><td>¥9</td></tr>
+      <tr><td>包装成本</td><td>¥1</td><td>¥2-4</td></tr>
+      <tr><td>广告/平台费</td><td>¥0</td><td>¥15-25/单</td></tr>
+      <tr><td>毛利</td><td>¥21-31 (60-69%)</td><td>¥25-40 (40-45%)</td></tr>
+      <tr><td>天花板</td><td>受插画师销量限制</td><td>高，可沉淀品牌</td></tr>
+    </table>
+    <div class="highlight-box">
+      <strong>策略：</strong>两条线并行。B端代工先跑通现金流和工艺验证，B2C自营同步建品牌。不要二选一。
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>4.6 私域沉淀（微信）</h3>
+    <p>每个买过的人都是宝贵的私域资产：</p>
+    <ul>
+      <li><strong>引流方式：</strong>每本笔记本感谢卡背面印微信二维码，"加微信，下次定制享9折"</li>
+      <li><strong>人设：</strong>拾锦主理人个人微信（不用企业微信，个人号更有人情味）</li>
+      <li><strong>朋友圈内容：</strong>新样品预告（私域先看）+ 工厂日常 + 节气问候</li>
+      <li><strong>复购触发：</strong>新节气款上线时群发通知，限量款优先给老客户</li>
+      <li><strong>目标：</strong>3个月沉淀200人，6个月500人。这些人比任何平台流量都值钱</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ========== 五、传播节奏 ========== -->
+<div class="section">
+  <div class="section-title">五、传播节奏（12周路线图）</div>
+  <div class="section-sub">不是一步到位，是分四个阶段、每阶段一个核心目标</div>
+
+  <div class="card">
+    <h3>5.1 四阶段路线图</h3>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="time"><span class="tag tag-cream">Phase 1</span> Week 1-3 · 建阵地</div>
+        <div class="content">
+          <strong>核心目标：</strong>三平台账号上线，有内容、有商品、能成交<br>
+          <strong>关键动作：</strong>
+          <ul>
+            <li>做10本节气款样品，拍全套主图和详情页素材</li>
+            <li>淘宝企业店上线，5款引流款+1款定制链接</li>
+            <li>抖音/小红书各发3-5条基础内容</li>
+            <li>私信5个插画师，寄出样品</li>
+            <li>直通车日预算50元，跑长尾词数据</li>
+          </ul>
+          <strong>验收标准：</strong>淘宝可成交、抖音有内容、小红书有笔记、2个以上插画师回复
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="time"><span class="tag tag-jin">Phase 2</span> Week 4-6 · 找爆款</div>
+        <div class="content">
+          <strong>核心目标：</strong>找到1-2条数据最好的内容方向，集中放大<br>
+          <strong>关键动作：</strong>
+          <ul>
+            <li>分析前3周数据，找出互动率最高的内容类型</li>
+            <li>该类型内容加倍产出，DOU+加投100-300元/条</li>
+            <li>首个联名款上线，双方同时发布内容</li>
+            <li>抖音首播——刺绣机搬进直播间</li>
+            <li>KOC寄样5个（小红书500-3000粉的手账/文具博主）</li>
+            <li>直通车优化：暂停低点击词，优质词加价</li>
+          </ul>
+          <strong>验收标准：</strong>抖音单条播放500+、小红书单篇浏览200+、首场直播观看100+、直通车ROAS≥2:1
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="time"><span class="tag tag-red">Phase 3</span> Week 7-9 · 放量</div>
+        <div class="content">
+          <strong>核心目标：</strong>放大验证过的打法，GMV起量<br>
+          <strong>关键动作：</strong>
+          <ul>
+            <li>直通车日预算提至150-300元，核心词稳定出价</li>
+            <li>抖音直播常态化，每周2-3场</li>
+            <li>第2-3个联名款上线，形成"联名款矩阵"</li>
+            <li>小红书持续种草+KOC笔记产出（目标10篇）</li>
+            <li>私域满200人，开始朋友圈运营</li>
+            <li>开始收集买家秀，优化详情页</li>
+          </ul>
+          <strong>验收标准：</strong>月GMV 5000+、直通车ROAS≥3:1、抖音粉丝500+、小红书粉丝300+
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="time"><span class="tag tag-green">Phase 4</span> Week 10-12 · 沉淀</div>
+        <div class="content">
+          <strong>核心目标：</strong>从"卖货"过渡到"做品牌"<br>
+          <strong>关键动作：</strong>
+          <ul>
+            <li>首季节气款复盘：哪些好卖、为什么</li>
+            <li>下一季节气款规划（从24节气中选5个）</li>
+            <li>联名款标准化：从1对1定制变为标准化合作流程</li>
+            <li>私域复购体系：复购券+老客专属款+生日定制礼</li>
+            <li>品牌资产整理：VI规范文档、内容素材库、工艺标准文档</li>
+            <li>评估是否进天猫（月GMV稳定1万+后考虑）</li>
+          </ul>
+          <strong>验收标准：</strong>月GMV 8000+、复购率10%+、私域500人、品牌搜索词出现
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>5.2 12周关键指标追踪表</h3>
+    <table>
+      <tr><th>指标</th><th>W3</th><th>W6</th><th>W9</th><th>W12</th></tr>
+      <tr><td>淘宝月GMV</td><td>500-1000</td><td>2000-3000</td><td>5000+</td><td>8000+</td></tr>
+      <tr><td>淘宝转化率</td><td>1%</td><td>1.5-2%</td><td>2.5%</td><td>3%+</td></tr>
+      <tr><td>直通车ROAS</td><td>—</td><td>2:1</td><td>3:1</td><td>3.5:1</td></tr>
+      <tr><td>抖音粉丝</td><td>100</td><td>200</td><td>500</td><td>1000</td></tr>
+      <tr><td>小红书粉丝</td><td>50</td><td>100</td><td>300</td><td>500</td></tr>
+      <tr><td>插画师合作</td><td>2个寄样</td><td>1个联名上线</td><td>2-3个联名</td><td>标准化流程</td></tr>
+      <tr><td>私域人数</td><td>30</td><td>100</td><td>200</td><td>500</td></tr>
+      <tr><td>复购率</td><td>—</td><td>—</td><td>5%</td><td>10%+</td></tr>
+      <tr><td>退货率</td><td>—</td><td><5%</td><td><5%</td><td><3%</td></tr>
+    </table>
+    <p style="margin-top:8px;font-size:13px;">每周一上午花30分钟看上周数据，填这张表。数据不是用来汇报的，是用来调整下周动作的。</p>
+  </div>
+</div>
+
+<!-- ========== 六、预算与投入 ========== -->
+<div class="section">
+  <div class="section-title">六、预算与投入</div>
+  <div class="section-sub">工厂做品牌，最大优势就是试错成本极低</div>
+
+  <div class="card">
+    <h3>6.1 一次性投入</h3>
+    <table>
+      <tr><th>项目</th><th>金额</th><th>说明</th></tr>
+      <tr><td>Logo设计</td><td>500-1500</td><td>找独立设计师，不走设计公司</td></tr>
+      <tr><td>淘宝保证金</td><td>1000</td><td>可退</td></tr>
+      <tr><td>首批样品（10本）</td><td>90</td><td>9元/本 × 10</td></tr>
+      <tr><td>包装材料（100套）</td><td>200</td><td>牛皮纸套+硫酸纸+感谢卡</td></tr>
+      <tr><td>刺绣线材+布料</td><td>300</td><td>7色标准线库+3种底布</td></tr>
+      <tr><td>合计</td><td><strong>~2,090-3,090</strong></td><td>不含保证金约1,090-2,090</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>6.2 前12周运营投入</h3>
+    <table>
+      <tr><th>项目</th><th>月预算</th><th>12周合计</th><th>说明</th></tr>
+      <tr><td>直通车</td><td>1,500-9,000</td><td>~10,500-21,000</td><td>从50元/天逐步加到300元/天</td></tr>
+      <tr><td>DOU+</td><td>800</td><td>~2,400</td><td>每周200元，只投数据好的视频</td></tr>
+      <tr><td>KOC寄样</td><td>200</td><td>~600</td><td>每月寄5-10份</td></tr>
+      <tr><td>插画师寄样</td><td>200</td><td>~600</td><td>免费打样</td></tr>
+      <tr><td>快递费</td><td>300</td><td>~900</td><td>寄样+发货</td></tr>
+      <tr><td>合计</td><td><strong>~3,000-10,300/月</strong></td><td><strong>~15,000-25,500</strong></td><td>前低后高，随GMV增长加投</td></tr>
+    </table>
+    <div class="highlight-box">
+      <strong>关键认知：</strong>这个预算对工厂来说几乎零风险。即使全部打了水漂，你也只是花了2万多块钱验证了一个品牌方向。但只要跑通了，你手里多的是一个能持续产生现金流的品牌资产——这比你接一笔外贸订单值钱得多。
+    </div>
+  </div>
+</div>
+
+<!-- ========== 七、风险与应对 ========== -->
+<div class="section">
+  <div class="section-title">七、风险清单与应对</div>
+  <div class="section-sub">提前看到风险，不是悲观——是让你走的时候不慌</div>
+
+  <div class="card">
+    <table>
+      <tr><th>风险</th><th>概率</th><th>影响</th><th>应对方案</th></tr>
+      <tr>
+        <td><strong>插画师不回复</strong></td>
+        <td>高</td>
+        <td>中</td>
+        <td>同时私信5-10个，不把鸡蛋放一个篮子。不回复是正常的，回复了是惊喜。2周内无回复换下一批。</td>
+      </tr>
+      <tr>
+        <td><strong>刺绣效果不及预期</strong></td>
+        <td>中</td>
+        <td>高</td>
+        <td>打样阶段就把不适合刺绣的图案筛掉。发给插画师前自己先评估，用刺绣适配指南做筛选。</td>
+      </tr>
+      <tr>
+        <td><strong>淘宝搜索量太低</strong></td>
+        <td>中</td>
+        <td>中</td>
+        <td>不依赖自然搜索，用直通车主动获客+小红书引流。搜索量是慢慢涨的，不急。</td>
+      </tr>
+      <tr>
+        <td><strong>定价撑不住</strong></td>
+        <td>低</td>
+        <td>高</td>
+        <td>如果68元都卖不动，说明问题不在价格在价值。检查视觉、包装、内容是否到位，而不是降价。</td>
+      </tr>
+      <tr>
+        <td><strong>定制售后纠纷</strong></td>
+        <td>中</td>
+        <td>中</td>
+        <td>付款前必须发效果确认图，客户文字回复"确认"再生产。这一步减少80%纠纷。</td>
+      </tr>
+      <tr>
+        <td><strong>被抄袭</strong></td>
+        <td>低</td>
+        <td>低</td>
+        <td>工厂是你的壁垒，别人抄得了图案抄不了工厂。被抄说明方向对了，加速跑就行。</td>
+      </tr>
+      <tr>
+        <td><strong>产能跟不上</strong></td>
+        <td>低</td>
+        <td>中</td>
+        <td>初期单量小，1小时/本的打样速度足够。月销500+时再考虑量产优化。</td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<!-- ========== 八、本周行动清单 ========== -->
+<div class="section">
+  <div class="section-title">八、本周行动清单</div>
+  <div class="section-sub">别等方案完美了再动——这周就开始</div>
+
+  <div class="card">
+    <ul class="checklist">
+      <li><strong>做10本节气款样品</strong>——用谷雨/白露/霜降/小满/芒种5个节气图案，各做2本</li>
+      <li><strong>拍第一批素材</strong>——每本拍3张（工艺特写、成品正面、与皮面笔记本对比照），共30张</li>
+      <li><strong>找Logo设计师</strong>——在小红书/站酷搜"Logo设计"，预算500-1500，给方向A（字体标）</li>
+      <li><strong>注册淘宝企业店</strong>——用工厂营业执照，上架5款引流款（先用手机拍的主图，后面再换）</li>
+      <li><strong>注册抖音+小红书账号</strong>——账号名"拾锦·刺绣笔记本"/"拾锦手作笔记"，发第一条工厂实拍</li>
+      <li><strong>私信5个插画师</strong>——用已打样的实物照片私信，话术见诊断卡片</li>
+      <li><strong>准备包装材料</strong>——淘宝搜"牛皮纸信封套""硫酸纸""卡纸感谢卡"，先买100套</li>
+      <li><strong>建一个微信小号</strong>——昵称"拾锦手作"，头像用Logo或产品图，准备做私域</li>
+    </ul>
+  </div>
+
+  <div class="highlight-box" style="text-align:center;">
+    <strong>最后一句：</strong>做品牌不是想出来的，是一针一线绣出来的。<br>
+    你有工厂、有手艺、有成本优势——这个赛道里，没有人比你离产品更近。<br>
+    先动起来，每周复盘一次，3个月后你会看到不一样的自己。
+  </div>
+</div>
+
+<div class="footer">
+  <div class="seal">拾锦</div>
+  <p>拾锦 · 战略执行方案 · Phase 3 · 2026.06<br>
+  一寸锦绣，一页日常<br>
+  品牌全案完整版（Phase 1-3）已归档</p>
+</div>
+
+</div>
+</body>
+</html>
