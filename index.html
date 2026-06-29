@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>拾锦 · 布面刺绣笔记本项目文档</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+
+  :root {
+    --ink: #2C2C2A;
+    --ink-light: #444441;
+    --ink-muted: #888780;
+    --paper: #F1EFE8;
+    --paper-white: #FAFAF7;
+    --gold: #854F0B;
+    --gold-light: #BA7517;
+    --gold-bg: #FAEEDA;
+    --purple: #534AB7;
+    --purple-light: #AFA9EC;
+    --purple-bg: #EEEDFE;
+    --teal: #0F6E56;
+    --teal-light: #5DCAA5;
+    --teal-bg: #E1F5EE;
+    --border: #D3D1C7;
+    --border-light: #E8E6DE;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .serif { font-family: 'Noto Serif SC', serif; }
+
+  .hero {
+    background: var(--paper-white);
+    border-bottom: 1px solid var(--border-light);
+    padding: 60px 24px 48px;
+    text-align: center;
+  }
+
+  .hero-brand {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 48px;
+    font-weight: 700;
+    letter-spacing: 10px;
+    color: var(--ink);
+    margin-bottom: 8px;
+    padding-left: 10px;
+  }
+
+  .hero-en {
+    font-size: 12px;
+    letter-spacing: 6px;
+    color: var(--ink-muted);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+
+  .hero-slogan {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 18px;
+    color: var(--gold);
+    letter-spacing: 3px;
+    margin-bottom: 6px;
+  }
+
+  .hero-sub {
+    font-size: 12px;
+    color: var(--ink-muted);
+    letter-spacing: 1px;
+  }
+
+  .container {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 32px 20px 60px;
+  }
+
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--gold-light);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    font-weight: 500;
+  }
+
+  .section-title {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 24px;
+    letter-spacing: 1px;
+  }
+
+  .doc-card {
+    display: block;
+    background: var(--paper-white);
+    border: 1px solid var(--border-light);
+    border-radius: 14px;
+    padding: 24px;
+    margin-bottom: 16px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .doc-card:active {
+    transform: scale(0.98);
+  }
+
+  .doc-card::after {
+    content: '';
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid var(--border);
+    border-top: 2px solid var(--border);
+    transform: translateY(-50%) rotate(45deg);
+  }
+
+  .doc-tag {
+    display: inline-block;
+    font-size: 11px;
+    padding: 3px 12px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    font-weight: 500;
+    letter-spacing: 1px;
+  }
+
+  .doc-tag.gold { background: var(--gold-bg); color: var(--gold); }
+  .doc-tag.purple { background: var(--purple-bg); color: var(--purple); }
+  .doc-tag.teal { background: var(--teal-bg); color: var(--teal); }
+
+  .doc-title {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 6px;
+    padding-right: 24px;
+  }
+
+  .doc-desc {
+    font-size: 13px;
+    color: var(--ink-muted);
+    line-height: 1.7;
+    padding-right: 24px;
+  }
+
+  .doc-meta {
+    display: flex;
+    gap: 16px;
+    margin-top: 12px;
+    font-size: 11px;
+    color: var(--ink-muted);
+  }
+
+  .doc-meta span {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .doc-meta .dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--border);
+  }
+
+  .footer {
+    text-align: center;
+    padding: 40px 24px;
+    border-top: 1px solid var(--border-light);
+  }
+
+  .footer-brand {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 18px;
+    color: var(--ink);
+    letter-spacing: 5px;
+    margin-bottom: 6px;
+  }
+
+  .footer-slogan {
+    font-size: 12px;
+    color: var(--gold);
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+  }
+
+  .footer-meta {
+    font-size: 11px;
+    color: var(--ink-muted);
+    line-height: 1.8;
+  }
+
+  .timeline {
+    margin-bottom: 32px;
+    padding: 20px 24px;
+    background: var(--paper-white);
+    border: 1px solid var(--border-light);
+    border-radius: 14px;
+  }
+
+  .timeline-item {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    padding: 8px 0;
+  }
+
+  .timeline-item:not(:last-child) {
+    border-bottom: 1px dashed var(--border-light);
+  }
+
+  .timeline-dot {
+    flex-shrink: 0;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-top: 8px;
+  }
+
+  .timeline-dot.done { background: var(--teal); }
+  .timeline-dot.current { background: var(--gold); }
+  .timeline-dot.next { background: var(--border); }
+
+  .timeline-text {
+    font-size: 13px;
+    color: var(--ink-light);
+    line-height: 1.6;
+  }
+
+  .timeline-text strong {
+    color: var(--ink);
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-brand serif">拾锦</div>
+  <div class="hero-en">S H I J I N</div>
+  <div class="hero-slogan serif">一寸锦绣，一页日常</div>
+  <div class="hero-sub">布面刺绣笔记本项目文档</div>
+</div>
+
+<div class="container">
+  <div class="section-label">PROJECT DOCS</div>
+  <div class="section-title serif">项目文档</div>
+
+  <a href="拾锦-品牌全案战略定位.html" class="doc-card">
+    <span class="doc-tag gold">品牌全案</span>
+    <div class="doc-title serif">拾锦 · 品牌全案战略定位</div>
+    <div class="doc-desc">市场调研、竞品格局、品牌命名、战略定位、品牌原型与人格、创始人故事、产品命名体系、价格带定位</div>
+    <div class="doc-meta">
+      <span><span class="dot"></span> Phase 2</span>
+      <span><span class="dot"></span> 2026.06.30</span>
+    </div>
+  </a>
+
+  <a href="布面刺绣笔记本定制-电商运营方案.html" class="doc-card">
+    <span class="doc-tag purple">电商运营</span>
+    <div class="doc-title serif">布面刺绣笔记本定制 · 电商运营方案</div>
+    <div class="doc-desc">三平台选择逻辑（淘宝+抖音+小红书）、商品分层定价、8周运营节奏、首月预算3140元</div>
+    <div class="doc-meta">
+      <span><span class="dot"></span> 运营方案</span>
+      <span><span class="dot"></span> 2026.06.30</span>
+    </div>
+  </a>
+
+  <a href="2026-06-30-布面刺绣笔记本定制.html" class="doc-card">
+    <span class="doc-tag teal">Idea 诊断</span>
+    <div class="doc-title serif">布面刺绣笔记本定制 · 诊断卡片</div>
+    <div class="doc-desc">AI 刘小排 idea 诊断：值得试、怎么试、定价建议、第一步行动清单</div>
+    <div class="doc-meta">
+      <span><span class="dot"></span> Phase 1</span>
+      <span><span class="dot"></span> 2026.06.30</span>
+    </div>
+  </a>
+
+  <div class="section-label" style="margin-top:32px;">PROJECT TIMELINE</div>
+  <div class="section-title serif">项目进度</div>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-dot done"></div>
+      <div class="timeline-text"><strong>Idea 诊断</strong> — 确定方向：布面刺绣笔记本 × 插画师联名代工模式</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot done"></div>
+      <div class="timeline-text"><strong>电商运营方案</strong> — 三平台打法、商品分层、8周节奏</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot done"></div>
+      <div class="timeline-text"><strong>品牌全案 · 战略定位</strong> — 品牌名「拾锦」、定位、原型、价值观</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot current"></div>
+      <div class="timeline-text"><strong>品牌全案 · 战略执行</strong> — 视觉系统、产品线、内容策略、传播节奏（待确认后启动）</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot next"></div>
+      <div class="timeline-text"><strong>样品制作 & 插画师触达</strong> — 10本样品 + 私信5位插画师</div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <div class="footer-brand serif">拾锦 SHIJIN</div>
+  <div class="footer-slogan serif">一寸锦绣，一页日常</div>
+  <div class="footer-meta">
+    AI 刘小排 × 品牌全案策略指南<br>
+    2026.06.30
+  </div>
+</div>
+
+</body>
+</html>
