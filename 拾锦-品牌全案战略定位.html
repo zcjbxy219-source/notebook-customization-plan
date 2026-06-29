@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>拾锦 · 品牌全案战略定位 — 布面刺绣笔记本</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+
+  :root {
+    --ink: #2C2C2A;
+    --ink-light: #444441;
+    --ink-muted: #888780;
+    --paper: #F1EFE8;
+    --paper-warm: #EDE8DC;
+    --paper-white: #FAFAF7;
+    --gold: #854F0B;
+    --gold-light: #BA7517;
+    --gold-bg: #FAEEDA;
+    --purple: #534AB7;
+    --purple-light: #AFA9EC;
+    --purple-bg: #EEEDFE;
+    --teal: #0F6E56;
+    --teal-light: #5DCAA5;
+    --teal-bg: #E1F5EE;
+    --coral: #D85A30;
+    --coral-bg: #FAECE7;
+    --border: #D3D1C7;
+    --border-light: #E8E6DE;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.8;
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .serif { font-family: 'Noto Serif SC', serif; }
+
+  .container {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* Hero */
+  .hero {
+    background: var(--paper-white);
+    border-bottom: 1px solid var(--border-light);
+    padding: 80px 0 60px;
+    text-align: center;
+  }
+
+  .hero-brand {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 56px;
+    font-weight: 700;
+    letter-spacing: 12px;
+    color: var(--ink);
+    margin-bottom: 12px;
+    padding-left: 12px;
+  }
+
+  .hero-en {
+    font-size: 13px;
+    letter-spacing: 8px;
+    color: var(--ink-muted);
+    text-transform: uppercase;
+    margin-bottom: 32px;
+  }
+
+  .hero-slogan {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 22px;
+    color: var(--gold);
+    letter-spacing: 4px;
+    margin-bottom: 8px;
+  }
+
+  .hero-sub {
+    font-size: 13px;
+    color: var(--ink-muted);
+    letter-spacing: 2px;
+  }
+
+  .hero-tag {
+    display: inline-block;
+    margin-top: 36px;
+    padding: 6px 20px;
+    border: 1px solid var(--gold-light);
+    border-radius: 20px;
+    font-size: 12px;
+    color: var(--gold);
+    letter-spacing: 2px;
+  }
+
+  /* Section */
+  .section {
+    padding: 56px 0;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .section:last-child { border-bottom: none; }
+
+  .section-label {
+    font-size: 12px;
+    letter-spacing: 4px;
+    color: var(--gold-light);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+
+  .section-title {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 28px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 32px;
+    letter-spacing: 2px;
+  }
+
+  /* Cards */
+  .card {
+    background: var(--paper-white);
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    padding: 28px 32px;
+    margin-bottom: 20px;
+  }
+
+  .card-title {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .card-title::before {
+    content: '';
+    width: 3px;
+    height: 18px;
+    background: var(--gold-light);
+    border-radius: 2px;
+  }
+
+  /* Stats grid */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .stat-card {
+    background: var(--paper-white);
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    padding: 24px;
+    text-align: center;
+  }
+
+  .stat-num {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 4px;
+  }
+
+  .stat-label {
+    font-size: 13px;
+    color: var(--ink-light);
+    margin-bottom: 4px;
+  }
+
+  .stat-source {
+    font-size: 11px;
+    color: var(--ink-muted);
+  }
+
+  /* Table */
+  .table-wrap {
+    overflow-x: auto;
+    margin-bottom: 20px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+
+  th {
+    background: var(--paper-warm);
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: 500;
+    color: var(--ink);
+    border-bottom: 2px solid var(--border);
+    white-space: nowrap;
+  }
+
+  td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border-light);
+    color: var(--ink-light);
+    vertical-align: top;
+  }
+
+  tr:last-child td { border-bottom: none; }
+
+  tr:hover td { background: var(--paper-white); }
+
+  /* Positioning map */
+  .map-container {
+    background: var(--paper-white);
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 20px;
+  }
+
+  .map-svg {
+    width: 100%;
+    height: auto;
+  }
+
+  /* Brand name candidates */
+  .name-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .name-card {
+    background: var(--paper-white);
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    padding: 24px;
+    position: relative;
+  }
+
+  .name-card.featured {
+    border: 2px solid var(--gold-light);
+    background: var(--gold-bg);
+  }
+
+  .name-card.featured::after {
+    content: '推荐';
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: var(--gold);
+    color: white;
+    font-size: 11px;
+    padding: 2px 10px;
+    border-radius: 10px;
+  }
+
+  .name-char {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 4px;
+    letter-spacing: 4px;
+  }
+
+  .name-pinyin {
+    font-size: 12px;
+    color: var(--ink-muted);
+    letter-spacing: 4px;
+    margin-bottom: 12px;
+  }
+
+  .name-style {
+    font-size: 12px;
+    color: var(--gold);
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+
+  .name-desc {
+    font-size: 13px;
+    color: var(--ink-light);
+    line-height: 1.7;
+  }
+
+  .name-extend {
+    font-size: 12px;
+    color: var(--ink-muted);
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px dashed var(--border);
+  }
+
+  /* Positioning statement */
+  .positioning-box {
+    background: var(--purple-bg);
+    border-left: 4px solid var(--purple);
+    border-radius: 0 12px 12px 0;
+    padding: 28px 32px;
+    margin-bottom: 24px;
+  }
+
+  .positioning-box p {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 17px;
+    line-height: 2;
+    color: var(--ink);
+  }
+
+  .positioning-formula {
+    background: var(--paper-white);
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    padding: 24px 28px;
+    font-size: 14px;
+    color: var(--ink-light);
+    line-height: 2.2;
+  }
+
+  .positioning-formula strong {
+    color: var(--purple);
+  }
+
+  /* Archetype */
+  .archetype-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+
+  .archetype-card {
+    border-radius: 12px;
+    padding: 24px;
+    border: 1px solid;
+  }
+
+  .archetype-card.primary {
+    background: var(--gold-bg);
+    border-color: var(--gold-light);
+  }
+
+  .archetype-card.secondary {
+    background: var(--teal-bg);
+    border-color: var(--teal-light);
+  }
+
+  .archetype-label {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+
+  .archetype-card.primary .archetype-label { color: var(--gold); }
+  .archetype-card.secondary .archetype-label { color: var(--teal); }
+
+  .archetype-name {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+
+  .archetype-desc {
+    font-size: 13px;
+    color: var(--ink-light);
+    line-height: 1.7;
+  }
+
+  /* Personality */
+  .personality-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .personality-item {
+    background: var(--paper-white);
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    padding: 20px 24px;
+  }
+
+  .personality-word {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+
+  .personality-is {
+    font-size: 13px;
+    color: var(--ink-light);
+    margin-bottom: 4px;
+  }
+
+  .personality-not {
+    font-size: 12px;
+    color: var(--coral);
+  }
+
+  /* Values */
+  .value-item {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 20px;
+    align-items: flex-start;
+  }
+
+  .value-num {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--gold-bg);
+    color: var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Noto Serif SC', serif;
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  .value-content h4 {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+
+  .value-content p {
+    font-size: 13px;
+    color: var(--ink-light);
+    line-height: 1.7;
+  }
+
+  /* Story */
+  .story-box {
+    background: var(--paper-white);
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    padding: 36px 40px;
+    margin-bottom: 20px;
+    position: relative;
+  }
+
+  .story-box::before {
+    content: '"';
+    position: absolute;
+    top: 8px;
+    left: 16px;
+    font-family: 'Noto Serif SC', serif;
+    font-size: 64px;
+    color: var(--border);
+    line-height: 1;
+  }
+
+  .story-text {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 16px;
+    line-height: 2.2;
+    color: var(--ink-light);
+    padding-left: 24px;
+  }
+
+  .story-text p { margin-bottom: 16px; }
+
+  .story-core {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px dashed var(--border);
+    font-size: 13px;
+    color: var(--gold);
+    font-weight: 500;
+  }
+
+  /* Naming system */
+  .naming-table th:nth-child(1) { width: 25%; }
+  .naming-table th:nth-child(2) { width: 30%; }
+  .naming-table th:nth-child(3) { width: 45%; }
+
+  /* Price */
+  .price-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .price-card {
+    border-radius: 12px;
+    padding: 20px 16px;
+    text-align: center;
+    border: 1px solid;
+  }
+
+  .price-card.tier1 { background: var(--paper-warm); border-color: var(--border); }
+  .price-card.tier2 { background: var(--purple-bg); border-color: var(--purple-light); }
+  .price-card.tier3 { background: var(--gold-bg); border-color: var(--gold-light); }
+  .price-card.tier4 { background: var(--teal-bg); border-color: var(--teal-light); }
+
+  .price-label {
+    font-size: 12px;
+    color: var(--ink-muted);
+    margin-bottom: 8px;
+  }
+
+  .price-value {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+
+  .price-desc {
+    font-size: 11px;
+    color: var(--ink-muted);
+  }
+
+  .price-note {
+    font-size: 13px;
+    color: var(--ink-light);
+    background: var(--paper-white);
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    padding: 16px 20px;
+    line-height: 1.7;
+  }
+
+  /* Questions */
+  .questions-box {
+    background: var(--coral-bg);
+    border: 1px solid var(--coral);
+    border-radius: 12px;
+    padding: 28px 32px;
+    margin-bottom: 20px;
+  }
+
+  .questions-box h3 {
+    font-size: 15px;
+    color: var(--coral);
+    margin-bottom: 16px;
+  }
+
+  .question-item {
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px dashed var(--border);
+  }
+
+  .question-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+
+  .question-num {
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--coral);
+    color: white;
+    font-size: 12px;
+    text-align: center;
+    line-height: 22px;
+    margin-right: 8px;
+  }
+
+  .question-text {
+    font-size: 14px;
+    color: var(--ink);
+    display: inline;
+  }
+
+  /* Footer */
+  .footer {
+    background: var(--paper-white);
+    border-top: 1px solid var(--border-light);
+    padding: 40px 0;
+    text-align: center;
+  }
+
+  .footer-brand {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 20px;
+    color: var(--ink);
+    letter-spacing: 6px;
+    margin-bottom: 8px;
+  }
+
+  .footer-slogan {
+    font-size: 13px;
+    color: var(--gold);
+    letter-spacing: 3px;
+    margin-bottom: 16px;
+  }
+
+  .footer-meta {
+    font-size: 12px;
+    color: var(--ink-muted);
+    line-height: 1.8;
+  }
+
+  /* Responsive */
+  @media (max-width: 640px) {
+    .hero-brand { font-size: 40px; }
+    .stats-grid, .name-grid, .archetype-grid, .personality-grid { grid-template-columns: 1fr; }
+    .price-grid { grid-template-columns: repeat(2, 1fr); }
+    .section-title { font-size: 22px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="container">
+    <div class="hero-brand serif">拾锦</div>
+    <div class="hero-en">S H I J I N</div>
+    <div class="hero-slogan serif">一寸锦绣，一页日常</div>
+    <div class="hero-sub">布面刺绣笔记本 · 品牌全案战略定位</div>
+    <div class="hero-tag">Phase 2 · 市场调研 + 战略定位</div>
+  </div>
+</div>
+
+<!-- Phase 1 Recap -->
+<div class="section">
+  <div class="container">
+    <div class="section-label">PHASE 1 RECAP</div>
+    <div class="section-title serif">已知信息回顾</div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:25%">维度</th>
+            <th style="width:75%">已知信息</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>行业/品类</td><td>文创笔记本定制，国内文创赛道</td></tr>
+          <tr><td>产品</td><td>内页标准版 + 封面个性化定制，封面用布材质 + 刺绣工艺</td></tr>
+          <tr><td>差异化</td><td>同行主流是皮革/纸封面 + 烫金凹凸，本项目做布面刺绣</td></tr>
+          <tr><td>供应链</td><td>自有笔记本生产线，1小时/本能打样，材料成本 ¥9/本</td></tr>
+          <tr><td>目标用户</td><td>文创IP联名（插画师 × 笔记本）方向，以代工模式起步</td></tr>
+          <tr><td>定价</td><td>给插画师加工费 ¥35-45，零售 ¥68-98</td></tr>
+          <tr><td>电商</td><td>淘宝 + 抖音 + 小红书三平台</td></tr>
+          <tr><td>品牌调性</td><td>偏东方传统工艺感 + 现代极简设计感</td></tr>
+          <tr><td>长期野心</td><td>做一个能被人记住的品牌</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- Market Research -->
+<div class="section">
+  <div class="container">
+    <div class="section-label">MARKET RESEARCH</div>
+    <div class="section-title serif">行业大盘</div>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-num serif">487.6<span style="font-size:16px">亿</span></div>
+        <div class="stat-label">中国本日记行业市场规模</div>
+        <div class="stat-source">2024年 · 同比 +7.8%</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num serif">30%<span style="font-size:16px">+</span></div>
+        <div class="stat-label">天猫手账本成交增速</div>
+        <div class="stat-source">2025年 · 商家数 +70%</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num serif">1/3</div>
+        <div class="stat-label">手账占笔记本整体比例</div>
+        <div class="stat-source">天猫数据</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num serif">77%</div>
+        <div class="stat-label">手账买家女性占比</div>
+        <div class="stat-source">天猫数据</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num serif">¥5,000</div>
+        <div class="stat-label">年轻人年均手账消费</div>
+        <div class="stat-source">今日头条调研</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num serif">130<span style="font-size:16px">亿+</span></div>
+        <div class="stat-label">小红书手账话题浏览量</div>
+        <div class="stat-source">新浪财经</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">核心判断</div>
+      <p style="font-size:14px;color:var(--ink-light);line-height:1.9">
+        手账不是小众爱好了，是一个<strong style="color:var(--gold)">年增30%+、女性主导、高客单、有社交传播属性</strong>的消费品类。赛道是对的，问题在于你怎么在赛道里卡住一个没人占的位置。
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- Competitive Landscape -->
+<div class="section">
+  <div class="container">
+    <div class="section-label">COMPETITIVE LANDSCAPE</div>
+    <div class="section-title serif">竞品格局</div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>品牌</th>
+            <th>定位</th>
+            <th>价格</th>
+            <th>特点</th>
+            <th>问题</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>铁文章</strong></td>
+            <td>非遗蓝染+刺绣</td>
+            <td>¥46</td>
+            <td>武汉，700+销量，有非遗概念</td>
+            <td>偏传统土特产感，没有现代设计语言</td>
+          </tr>
+          <tr>
+            <td><strong>梅子手作</strong></td>
+            <td>独家布艺手作</td>
+            <td>未知</td>
+            <td>个人工作室，手工感强</td>
+            <td>产能受限，无法规模化，无品牌意识</td>
+          </tr>
+          <tr>
+            <td><strong>勤得利</strong></td>
+            <td>立体刺绣少女心</td>
+            <td>¥51</td>
+            <td>台州文具厂，200+销量</td>
+            <td>偏廉价少女风，无品牌溢价</td>
+          </tr>
+          <tr>
+            <td><strong>九口山</strong></td>
+            <td>原创设计小众</td>
+            <td>¥30-80</td>
+            <td>裸脊装订，有品牌调性</td>
+            <td>纸本为主，不做布面刺绣</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card" style="background:var(--purple-bg);border-color:var(--purple-light);">
+      <div class="card-title" style="color:var(--purple);">关键发现</div>
+      <p style="font-size:14px;color:var(--ink-light);line-height:1.9">
+        没有任何一个品牌占据<strong style="color:var(--purple)">"东方美学 × 现代极简 × 布面刺绣 × 品牌化运营"</strong>这个位置。现有玩家要么是非遗土特产路线，要么是手作小工作室，要么是廉价工厂货。<strong style="color:var(--purple)">这个象限是空的。</strong>
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- Brand Name -->
+<div class="section">
+  <div class="container">
+    <div class="section-label">BRAND NAME</div>
+    <div class="section-title serif">品牌名推荐</div>
+    <div class="name-grid">
+      <div class="name-card featured">
+        <div class="name-char serif">拾锦</div>
+        <div class="name-pinyin">SHÍ JǏN</div>
+        <div class="name-style">东方 · 手作感</div>
+        <div class="name-desc">
+          "拾"是捡拾、收集，一个安静的动作；"锦"是锦绣、美好织物。合在一起——拾起一寸锦绣，既是品牌叙事，也是产品动作。
+        </div>
+        <div class="name-extend">
+          <strong>延展性：</strong>可延伸手账配件、布艺文创、布艺生活用品
+        </div>
+      </div>
+      <div class="name-card">
+        <div class="name-char serif">布言</div>
+        <div class="name-pinyin">BÙ YÁN</div>
+        <div class="name-style">极简 · 干净</div>
+        <div class="name-desc">
+          布会说话——让材质本身成为表达。最极简、最现代，品类延伸最自由，但需要靠视觉把"刺绣"认知打出来。
+        </div>
+        <div class="name-extend">
+          <strong>延展性：</strong>任何布基材产品都能装
+        </div>
+      </div>
+      <div class="name-card">
+        <div class="name-char serif">织语</div>
+        <div class="name-pinyin">ZHĪ YǓ</div>
+        <div class="name-style">文艺 · 现代</div>
+        <div class="name-desc">
+          "织"是动作，"语"是表达——用织物说话。有文艺感，但偏柔，缺一点厚重。
+        </div>
+        <div class="name-extend">
+          <strong>延展性：</strong>可延伸所有布艺文创品
+        </div>
+      </div>
+      <div class="name-card">
+        <div class="name-char serif">绣册</div>
+        <div class="name-pinyin">XIÙ CÈ</div>
+        <div class="name-style">直接 · 克制</div>
+        <div class="name-desc">
+          "绣"是工艺，"册"是载体，一看就知道做什么。但品类绑定太紧，后续延伸受限。
+        </div>
+        <div class="name-extend">
+          <strong>延展性：</strong>笔记本为主，可延伸手账、画册
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">推荐理由：为什么是「拾锦」</div>
+      <div style="font-size:14px;color:var(--ink-light);line-height:2;">
+        <p style="margin-bottom:12px"><strong style="color:var(--gold)">"拾"</strong> — 拾起、收集。一个安静的动作，有现代极简的克制感</p>
+        <p style="margin-bottom:12px"><strong style="color:var(--gold)">"锦"</strong> — 锦绣、美好织物。承载东方传统工艺的文化记忆</p>
+        <p style="margin-bottom:12px"><strong style="color:var(--gold)">合在一起</strong> — "拾起一寸锦绣"，既是品牌叙事，也是产品动作</p>
+        <p style="margin-bottom:12px"><strong style="color:var(--gold)">调性匹配</strong> — A（东方传统工艺感）+ B（现代极简设计感），"拾"偏极简，"锦"偏东方，天然融合</p>
+        <p><strong style="color:var(--gold)">英文名 SHIJIN</strong> — 拼音直用，不做翻译。走极简路线，拼音更有东方感，像"SHANG XIA"上下</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Strategic Positioning -->
+<div class="section">
+  <div class="container">
+    <div class="section-label">STRATEGIC POSITIONING</div>
+    <div class="section-title serif">战略定位</div>
+    <div class="positioning-box">
+      <p class="serif">
+        <strong>拾锦</strong>是一个以布面刺绣为核心工艺的文创笔记本品牌。我们用东方织物美学和现代极简设计，让每一本笔记本成为可触摸的日常仪式。自有工厂，一针一线，皆为诚意。
+      </p>
+    </div>
+    <div class="positioning-formula">
+      <p>对于 <strong>追求日常仪式感的年轻女性和文化消费者</strong>，</p>
+      <p>拾锦是 <strong>唯一以布面刺绣为核心工艺的东方美学笔记本品牌</strong>，</p>
+      <p>它提供 <strong>可触摸的织物质感和个性化刺绣定制</strong>，</p>
+      <p>让你 <strong>在数字时代保留一份手作的温度</strong>。</p>
+    </div>
+  </div>
+</div>
+
+<!-- Brand Archetype -->
+<div class="section">
+  <div class="container">
+    <div class="section-label">BRAND ARCHETYPE</div>
+    <div class="section-title serif">品牌原型</div>
+    <div class="archetype-grid">
+      <div class="archetype-card primary">
+        <div class="archetype-label">主导原型</div>
+        <div class="archetype-name serif">创造者 The Creator</div>
+        <div class="archetype-desc">用双手把想法变成实物，工厂就是你的画布。不是在贩卖一个概念，是在展示一种"我能造"的能力。</div>
+      </div>
+      <div class="archetype-card secondary">
+        <div class="archetype-label">辅助原型</div>
+        <div class="archetype-name serif">探索者 The Explorer</div>
+        <div class="archetype-desc">从外贸转向国内，从代工转向品牌，本身就是在探索新可能。不是跟随者，是先行者。</div>
+      </div>
+    </div>
+    <div class="card">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+        <div>
+          <div style="font-size:12px;color:var(--gold);margin-bottom:6px;font-weight:500;">品牌使命</div>
+          <div style="font-size:14px;color:var(--ink-light);line-height:1.8">让中国传统织物工艺回到日常使用中</div>
+        </div>
+        <div>
+          <div style="font-size:12px;color:var(--gold);margin-bottom:6px;font-weight:500;">品牌愿景</div>
+          <div style="font-size:14px;color:var(--ink-light);line-height:1.8">成为中国布艺文创第一品牌，让"布面刺绣"成为品类代名词</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Brand Personality -->
+<div class="section">
+  <div class="container">
+    <div class="section-label">BRAND PERSONALITY</div>
+    <div class="section-title serif">品牌人格</div>
+    <div class="personality-grid">
+      <div class="personality-item">
+        <div class="personality-word serif">克制</div>
+        <div class="personality-is">不堆砌元素，留白比图案重要</div>
+        <div class="personality-not">不是花哨的、满绣的</div>
+      </div>
+      <div class="personality-item">
+        <div class="personality-word serif">诚意</div>
+        <div class="personality-is">自有工厂，自己动手，不外包不贴牌</div>
+        <div class="personality-not">不是中间商、不是代发</div>
+      </div>
+      <div class="personality-item">
+        <div class="personality-word serif">温度</div>
+        <div class="personality-is">布的触感比皮革温暖，刺绣的纹理比印刷有人情味</div>
+        <div class="personality-not">不是冰冷的、工业的</div>
+      </div>
+      <div class="personality-item">
+        <div class="personality-word serif">当代</div>
+        <div class="personality-is">东方美学用现代设计语言重新表达</div>
+        <div class="personality-not">不是复古的、土特产的</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Brand Values -->
+<div class="section">
+  <div class="container">
+    <div class="section-label">BRAND VALUES</div>
+    <div class="section-title serif">品牌价值观</div>
+    <div class="card">
+      <div class="value-item">
+        <div class="value-num serif">壹</div>
+        <div class="value-content">
+          <h4>材质即语言</h4>
+          <p>选什么布、用什么线，本身就是表达。不掩盖材质，不仿造其他材质。</p>
+        </div>
+      </div>
+      <div class="value-item">
+        <div class="value-num serif">贰</div>
+        <div class="value-content">
+          <h4>工艺即内容</h4>
+          <p>刺绣不只是装饰，是产品本身的故事。每针每线都应该被看见。</p>
+        </div>
+      </div>
+      <div class="value-item">
+        <div class="value-num serif">叁</div>
+        <div class="value-content">
+          <h4>日常即仪式</h4>
+          <p>不是用来供着的艺术品，是每天翻开、书写、携带的日常物件。</p>
+        </div>
+      </div>
+      <div class="value-item">
+        <div class="value-num serif">肆</div>
+        <div class="value-content">
+          <h4>工厂即优势</h4>
+          <p>不藏着掖着，自有工厂是底气，是成本优势，是响应速度，是对消费者的承诺。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Founder Story -->
+<div class="section">
+  <div class="container">
+    <div class="section-label">FOUNDER STORY</div>
+    <div class="section-title serif">品牌故事</div>
+    <div class="story-box">
+      <div class="story-text serif">
+        <p>我做了十几年笔记本外贸。工厂里每天出货几万本，发往全世界，但没有一本是我的。</p>
+        <p>做外贸久了你会发现一件事：中国工厂什么都能做，但很少有人用自己的名字去做。不是做不好，是没想过"我也可以有自己的品牌"。</p>
+        <p>布面刺绣这件事，起因很简单——市面上皮革烫金太多了，我想试试不一样的。布的触感比皮温暖，刺绣的纹理比印刷有人情味。而且我有工厂，一个小时就能打一本样品，材料成本9块钱。这件事我做得起，也赔得起。</p>
+        <p>拾锦，拾起一寸锦绣。不是要复兴什么传统工艺，就是想让每天翻开笔记本的那个瞬间，多一点手作的温度。</p>
+        <p>这是我从工厂走向品牌的第一步。</p>
+      </div>
+      <div class="story-core">
+        叙事核心：不是"我从小热爱传统文化"的文青叙事，而是"我是工厂老板，我用我的手艺做自己的品牌"的匠人叙事。更真实、更有信任感。
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Naming System -->
+<div class="section">
+  <div class="container">
+    <div class="section-label">NAMING SYSTEM</div>
+    <div class="section-title serif">产品命名体系</div>
+    <div class="card" style="margin-bottom:16px;">
+      <p style="font-size:13px;color:var(--ink-muted);line-height:1.8;margin-bottom:16px;">
+        参考观夏的产品命名逻辑——每个名字本身就是内容，是一幅东方画卷。拾锦也应建立自己的命名体系：
+      </p>
+    </div>
+    <div class="table-wrap">
+      <table class="naming-table">
+        <thead>
+          <tr>
+            <th>产品线</th>
+            <th>命名逻辑</th>
+            <th>示例</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>引流款</strong><br><span style="font-size:12px;color:var(--ink-muted)">固定图案</span></td>
+            <td>以节气/时令命名</td>
+            <td>拾锦·谷雨、拾锦·白露、拾锦·霜降</td>
+          </tr>
+          <tr>
+            <td><strong>联名款</strong><br><span style="font-size:12px;color:var(--ink-muted)">插画师合作</span></td>
+            <td>以插画师作品主题命名</td>
+            <td>拾锦×插画师·山海间、拾锦×插画师·夜行</td>
+          </tr>
+          <tr>
+            <td><strong>定制款</strong><br><span style="font-size:12px;color:var(--ink-muted)">客户图案</span></td>
+            <td>客户自定 + "拾锦·独一"前缀</td>
+            <td>拾锦·独一·[客户名]</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- Price Positioning -->
+<div class="section">
+  <div class="container">
+    <div class="section-label">PRICE POSITIONING</div>
+    <div class="section-title serif">价格带定位</div>
+    <div class="price-grid">
+      <div class="price-card tier1">
+        <div class="price-label">引流款</div>
+        <div class="price-value serif">¥68-78</div>
+        <div class="price-desc">固定图案 · 走量拉搜索</div>
+      </div>
+      <div class="price-card tier2">
+        <div class="price-label">联名款</div>
+        <div class="price-value serif">¥88-108</div>
+        <div class="price-desc">插画师合作 · 品牌溢价</div>
+      </div>
+      <div class="price-card tier3">
+        <div class="price-label">定制款</div>
+        <div class="price-value serif">¥118-158</div>
+        <div class="price-desc">客户提供图案 · 高客单</div>
+      </div>
+      <div class="price-card tier4">
+        <div class="price-label">B端代工</div>
+        <div class="price-value serif">¥35-45</div>
+        <div class="price-desc">成本价给合作方</div>
+      </div>
+    </div>
+    <div class="price-note">
+      <strong style="color:var(--gold)">为什么比白牌略提？</strong> 从白牌59-98上浮到品牌68-158。品牌有溢价是正常的——但溢价不是凭空来的，要靠视觉、包装、内容、工艺细节来支撑。后续战略执行方案会覆盖这些。
+    </div>
+  </div>
+</div>
+
+<!-- Positioning Map -->
+<div class="section">
+  <div class="container">
+    <div class="section-label">POSITIONING MAP</div>
+    <div class="section-title serif">竞争格局与定位地图</div>
+    <div class="map-container">
+      <svg class="map-svg" viewBox="0 0 680 520" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="arrow2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </marker>
+        </defs>
+
+        <line x1="80" y1="440" x2="640" y2="440" stroke="#888780" stroke-width="0.5"/>
+        <line x1="80" y1="440" x2="80" y2="40" stroke="#888780" stroke-width="0.5"/>
+
+        <text x="360" y="475" text-anchor="middle" font-size="13" font-weight="500" fill="#444441" font-family="sans-serif">设计风格</text>
+        <text x="160" y="475" text-anchor="middle" font-size="12" fill="#888780" font-family="sans-serif">传统工艺</text>
+        <text x="560" y="475" text-anchor="middle" font-size="12" fill="#888780" font-family="sans-serif">现代极简</text>
+
+        <text x="40" y="240" text-anchor="middle" font-size="13" font-weight="500" fill="#444441" font-family="sans-serif" transform="rotate(-90 40 240)">品牌定位</text>
+        <text x="65" y="80" text-anchor="middle" font-size="12" fill="#888780" font-family="sans-serif" transform="rotate(-90 65 80)">高端品牌化</text>
+        <text x="65" y="400" text-anchor="middle" font-size="12" fill="#888780" font-family="sans-serif" transform="rotate(-90 65 400)">大众平价</text>
+
+        <line x1="360" y1="440" x2="360" y2="40" stroke="#D3D1C7" stroke-width="0.5" stroke-dasharray="4 4"/>
+        <line x1="80" y1="240" x2="640" y2="240" stroke="#D3D1C7" stroke-width="0.5" stroke-dasharray="4 4"/>
+
+        <rect x="380" y="60" width="240" height="160" rx="12" fill="#EEEDFE" stroke="#AFA9EC" stroke-width="1" stroke-dasharray="6 3" opacity="0.6"/>
+        <text x="500" y="85" text-anchor="middle" font-size="12" font-weight="500" fill="#534AB7" font-family="sans-serif">白空位机会</text>
+        <text x="500" y="102" text-anchor="middle" font-size="11" fill="#7F77DD" font-family="sans-serif">东方美学 × 现代极简</text>
+        <text x="500" y="118" text-anchor="middle" font-size="11" fill="#7F77DD" font-family="sans-serif">× 品牌化运营</text>
+
+        <g>
+          <circle cx="200" cy="300" r="8" fill="#F5C4B3" stroke="#D85A30" stroke-width="1"/>
+          <text x="215" y="298" font-size="12" font-weight="500" fill="#444441" font-family="sans-serif">铁文章</text>
+          <text x="215" y="314" font-size="11" fill="#888780" font-family="sans-serif">非遗蓝染刺绣 · ¥46</text>
+        </g>
+
+        <g>
+          <circle cx="170" cy="200" r="8" fill="#F5C4B3" stroke="#D85A30" stroke-width="1"/>
+          <text x="185" y="198" font-size="12" font-weight="500" fill="#444441" font-family="sans-serif">梅子手作</text>
+          <text x="185" y="214" font-size="11" fill="#888780" font-family="sans-serif">独家布艺手作</text>
+        </g>
+
+        <g>
+          <circle cx="280" cy="380" r="8" fill="#F5C4B3" stroke="#D85A30" stroke-width="1"/>
+          <text x="295" y="378" font-size="12" font-weight="500" fill="#444441" font-family="sans-serif">勤得利</text>
+          <text x="295" y="394" font-size="11" fill="#888780" font-family="sans-serif">立体刺绣 · ¥51</text>
+        </g>
+
+        <g>
+          <circle cx="450" cy="260" r="8" fill="#B5D4F4" stroke="#378ADD" stroke-width="1"/>
+          <text x="465" y="258" font-size="12" font-weight="500" fill="#444441" font-family="sans-serif">九口山</text>
+          <text x="465" y="274" font-size="11" fill="#888780" font-family="sans-serif">原创设计 · 裸脊装订</text>
+        </g>
+
+        <g>
+          <circle cx="540" cy="340" r="8" fill="#B5D4F4" stroke="#378ADD" stroke-width="1"/>
+          <text x="475" y="338" text-anchor="end" font-size="12" font-weight="500" fill="#444441" font-family="sans-serif">无印良品</text>
+          <text x="475" y="354" text-anchor="end" font-size="11" fill="#888780" font-family="sans-serif">极简纸本 · 无刺绣线</text>
+        </g>
+
+        <g>
+          <circle cx="490" cy="130" r="12" fill="#534AB7" stroke="#26215C" stroke-width="2"/>
+          <text x="510" y="128" font-size="14" font-weight="500" fill="#26215C" font-family="sans-serif">拾锦（你的品牌）</text>
+          <text x="510" y="146" font-size="11" fill="#534AB7" font-family="sans-serif">东方美学 × 现代极简 · 布面刺绣</text>
+          <text x="510" y="162" font-size="11" fill="#7F77DD" font-family="sans-serif">自有工厂 · 品牌化运营</text>
+        </g>
+
+        <path d="M 280 350 Q 380 250 470 145" fill="none" stroke="#534AB7" stroke-width="1" stroke-dasharray="3 3" opacity="0.5" marker-end="url(#arrow2)"/>
+
+        <g transform="translate(80, 495)">
+          <circle cx="8" cy="0" r="5" fill="#F5C4B3" stroke="#D85A30" stroke-width="1"/>
+          <text x="20" y="4" font-size="11" fill="#888780" font-family="sans-serif">布面/刺绣竞品</text>
+          <circle cx="130" cy="0" r="5" fill="#B5D4F4" stroke="#378ADD" stroke-width="1"/>
+          <text x="142" y="4" font-size="11" fill="#888780" font-family="sans-serif">主流笔记本品牌</text>
+          <circle cx="270" cy="0" r="5" fill="#534AB7" stroke="#26215C" stroke-width="1.5"/>
+          <text x="282" y="4" font-size="11" fill="#888780" font-family="sans-serif">你的目标位置</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<!-- Questions -->
+<div class="section">
+  <div class="container">
+    <div class="section-label">NEXT STEP</div>
+    <div class="section-title serif">战略定位提问</div>
+    <div class="questions-box">
+      <h3>进入 Phase 3（战略执行方案）前，需确认：</h3>
+      <div class="question-item">
+        <span class="question-num">1</span>
+        <span class="question-text">品牌名「拾锦」你认不认？如果不喜欢，「布言」也可以。但定了就不要改——品牌名是所有后续视觉、内容、传播的基础。</span>
+      </div>
+      <div class="question-item">
+        <span class="question-num">2</span>
+        <span class="question-text">创始人故事那段，你的真实感受是不是这样？我写的是"工厂老板做自己的品牌"这个角度。如果你心里有更真实的触发点，告诉我，我改。</span>
+      </div>
+      <div class="question-item">
+        <span class="question-num">3</span>
+        <span class="question-text">价格带上浮你能不能接受？从白牌59-98上浮到品牌68-158。这意味着包装、视觉、内容投入要跟上，否则价格撑不住。</span>
+      </div>
+    </div>
+    <div class="card" style="text-align:center;background:var(--gold-bg);border-color:var(--gold-light);">
+      <p style="font-family:'Noto Serif SC',serif;font-size:16px;color:var(--gold);line-height:2;">
+        这三个你给我一个回复，<br>我直接出完整的战略执行方案——<br>包含品牌视觉系统、产品线规划、内容策略、渠道策略、传播节奏。
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <div class="container">
+    <div class="footer-brand serif">拾锦 SHIJIN</div>
+    <div class="footer-slogan serif">一寸锦绣，一页日常</div>
+    <div class="footer-meta">
+      布面刺绣笔记本 · 品牌全案战略定位<br>
+      AI 刘小排 × 品牌全案策略指南 · 2026.06.30
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
