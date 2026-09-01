@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>拾锦 · 名画系列企划方案</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+
+  :root {
+    --ink: #2C2C2A;
+    --ink-light: #444441;
+    --ink-muted: #888780;
+    --paper: #F1EFE8;
+    --paper-white: #FAFAF7;
+    --gold: #854F0B;
+    --gold-light: #BA7517;
+    --gold-bg: #FAEEDA;
+    --purple: #534AB7;
+    --purple-light: #AFA9EC;
+    --purple-bg: #EEEDFE;
+    --teal: #0F6E56;
+    --teal-light: #5DCAA5;
+    --teal-bg: #E1F5EE;
+    --red: #9B2C2C;
+    --red-bg: #FBE8E8;
+    --border: #D3D1C7;
+    --border-light: #E8E6DE;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .serif { font-family: 'Noto Serif SC', serif; }
+
+  .hero {
+    background: var(--paper-white);
+    border-bottom: 1px solid var(--border-light);
+    padding: 56px 24px 44px;
+    text-align: center;
+  }
+
+  .hero-label {
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: var(--gold-light);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    font-weight: 500;
+  }
+
+  .hero-title {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 28px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 8px;
+    letter-spacing: 2px;
+  }
+
+  .hero-sub {
+    font-size: 14px;
+    color: var(--ink-muted);
+    letter-spacing: 1px;
+  }
+
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 36px 20px 60px;
+  }
+
+  .section {
+    margin-bottom: 42px;
+  }
+
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--gold-light);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    font-weight: 500;
+  }
+
+  .section-title {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 18px;
+    letter-spacing: 1px;
+  }
+
+  .section-desc {
+    font-size: 14px;
+    color: var(--ink-light);
+    margin-bottom: 20px;
+  }
+
+  .lead {
+    font-size: 15px;
+    color: var(--ink-light);
+    background: var(--paper-white);
+    border-left: 3px solid var(--gold);
+    padding: 16px 18px;
+    margin-bottom: 24px;
+    border-radius: 0 10px 10px 0;
+  }
+
+  .card {
+    background: var(--paper-white);
+    border: 1px solid var(--border-light);
+    border-radius: 14px;
+    padding: 22px 20px;
+    margin-bottom: 16px;
+  }
+
+  .card-title {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .card-meta {
+    font-size: 12px;
+    color: var(--ink-muted);
+    margin-bottom: 12px;
+  }
+
+  .card-body {
+    font-size: 14px;
+    color: var(--ink-light);
+    line-height: 1.8;
+  }
+
+  .tag {
+    display: inline-block;
+    font-size: 11px;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    white-space: nowrap;
+  }
+
+  .tag.gold { background: var(--gold-bg); color: var(--gold); }
+  .tag.purple { background: var(--purple-bg); color: var(--purple); }
+  .tag.teal { background: var(--teal-bg); color: var(--teal); }
+  .tag.red { background: var(--red-bg); color: var(--red); }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin: 14px 0;
+    background: var(--paper-white);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  th, td {
+    padding: 10px 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-light);
+    vertical-align: top;
+  }
+
+  th {
+    background: var(--gold-bg);
+    color: var(--gold);
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+
+  tr:last-child td { border-bottom: none; }
+
+  .work-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .work-list li {
+    padding: 6px 0;
+    border-bottom: 1px dashed var(--border-light);
+    font-size: 14px;
+    color: var(--ink-light);
+  }
+
+  .work-list li:last-child { border-bottom: none; }
+
+  .work-list .work-title {
+    font-weight: 500;
+    color: var(--ink);
+  }
+
+  .work-list .work-note {
+    font-size: 12px;
+    color: var(--ink-muted);
+    margin-left: 4px;
+  }
+
+  .highlight-box {
+    background: var(--teal-bg);
+    border-radius: 12px;
+    padding: 18px 20px;
+    margin: 20px 0;
+  }
+
+  .highlight-box.red {
+    background: var(--red-bg);
+  }
+
+  .highlight-box .title {
+    font-weight: 500;
+    color: var(--teal);
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+
+  .highlight-box.red .title { color: var(--red); }
+
+  .highlight-box ul {
+    margin-left: 18px;
+    font-size: 13px;
+    color: var(--ink-light);
+  }
+
+  .highlight-box li { margin-bottom: 6px; }
+
+  .price-table th { background: var(--purple-bg); color: var(--purple); }
+
+  .sku-table th { background: var(--teal-bg); color: var(--teal); }
+
+  .footer {
+    text-align: center;
+    padding: 40px 24px;
+    border-top: 1px solid var(--border-light);
+    background: var(--paper-white);
+  }
+
+  .footer-brand {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 18px;
+    color: var(--ink);
+    letter-spacing: 5px;
+    margin-bottom: 6px;
+  }
+
+  .footer-slogan {
+    font-size: 12px;
+    color: var(--gold);
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+  }
+
+  .footer-meta {
+    font-size: 11px;
+    color: var(--ink-muted);
+    line-height: 1.8;
+  }
+
+  .todo {
+    background: var(--paper-white);
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    padding: 18px 20px;
+  }
+
+  .todo-item {
+    display: flex;
+    gap: 12px;
+    padding: 8px 0;
+    border-bottom: 1px dashed var(--border-light);
+    font-size: 14px;
+    color: var(--ink-light);
+  }
+
+  .todo-item:last-child { border-bottom: none; }
+
+  .todo-num {
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--gold-bg);
+    color: var(--gold);
+    font-size: 11px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @media (max-width: 480px) {
+    .hero-title { font-size: 24px; }
+    .section-title { font-size: 20px; }
+    table { font-size: 12px; }
+    th, td { padding: 8px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-label">Product Plan · 拾锦画语</div>
+  <div class="hero-title serif">拾锦 · 名画系列企划方案</div>
+  <div class="hero-sub">避开“星月夜与千里江山”，做冷门名作的触感复刻</div>
+</div>
+
+<div class="container">
+
+  <div class="section">
+    <div class="section-label">Positioning</div>
+    <div class="section-title serif">一、企划定位</div>
+    <div class="lead">
+      公版名画笔记本是红海，但“名画”不是不能做，关键是<strong>不能只做一张贴图</strong>。拾锦的切入点是：冷门名作 × 触感工艺 × 内页联动 × 系列收集。
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="tag gold">产品线</span>拾锦·画语</div>
+      <div class="card-body">
+        公版名画系列作为拾锦第二条产品线，与“布面刺绣定制”形成互补：刺绣线主打原创/联名/定制，名画线主打流量款与品牌调性。统一品牌语言——<strong>“可触摸的日常仪式”</strong>。
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="tag purple">差异化公式</span></div>
+      <div class="card-body">
+        别人：烫金LOGO + 名画全图印刷 + 空白内页。<br>
+        拾锦：冷门名作局部 + 压纹触感工艺 + 主题内页 + 画家系列套装 + 故事卡。
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Selection Criteria</div>
+    <div class="section-title serif">二、选画标准</div>
+    <table>
+      <tr><th>标准</th><th>说明</th><th>反面教材</th></tr>
+      <tr>
+        <td><strong>避开“前五名”</strong></td>
+        <td>选画家的代表作之外、辨识度仍在的冷门佳作</td>
+        <td>梵高星月夜、莫奈睡莲、千里江山图</td>
+      </tr>
+      <tr>
+        <td><strong>适配竖封面</strong></td>
+        <td>A5笔记本竖向裁切，优先选竖构图或可竖裁的局部</td>
+        <td>宽幅全景风景直接缩小铺满</td>
+      </tr>
+      <tr>
+        <td><strong>笔触可压纹</strong></td>
+        <td>画面有明显纹理、笔触、线条，适合UV/凹凸工艺表达</td>
+        <td>过度平滑、渐变过渡的数码图</td>
+      </tr>
+      <tr>
+        <td><strong>色彩和谐</strong></td>
+        <td>一个系列内色调统一，便于套装陈列与拍摄</td>
+        <td>一个系列里冷暖杂乱</td>
+      </tr>
+      <tr>
+        <td><strong>公版可商用</strong></td>
+        <td>作者去世超过70年，且使用博物馆开放高清图源</td>
+        <td>莫兰迪、毕加索大部分、弗里达</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Western Series</div>
+    <div class="section-title serif">三、西方画家系列</div>
+
+    <div class="card">
+      <div class="card-title"><span class="tag gold">系列 01</span>莫奈 · 四季与光</div>
+      <div class="card-meta">4本套装 · 主题：同一画家看四季的光</div>
+      <div class="card-body">
+        <ul class="work-list">
+          <li><span class="work-title">《喜鹊》</span><span class="work-note">冬雪与蓝紫色阴影，极少见的莫奈冷色调</span></li>
+          <li><span class="work-title">《维特伊的雪景》</span><span class="work-note">村庄雪景，竖向构图适配封面</span></li>
+          <li><span class="work-title">《干草堆·日落》</span><span class="work-note">秋日暖光，色彩最具辨识度</span></li>
+          <li><span class="work-title">《睡莲池与垂柳》</span><span class="work-note">夏日水面绿意，局部裁剪</span></li>
+        </ul>
+        <p style="margin-top:12px;font-size:13px;color:var(--ink-muted)">
+          <strong>触感工艺：</strong>水面波纹与睡莲叶脉做浅压纹；柳条用细线条UV。<br>
+          <strong>内页联动：</strong>横线底部带水波纹淡底纹，页脚印季节小字。
+        </p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="tag gold">系列 02</span>梵高 · 不止星月夜</div>
+      <div class="card-meta">5本套装 · 主题：梵高被忽略的温暖与日常</div>
+      <div class="card-body">
+        <ul class="work-list">
+          <li><span class="work-title">《盛开的杏枝》</span><span class="work-note">春天，东方感最强的梵高作品</span></li>
+          <li><span class="work-title">《阿尔勒的卧室》</span><span class="work-note">室内暖意，适合“书写日常”场景</span></li>
+          <li><span class="work-title">《夜间咖啡馆》</span><span class="work-note">深蓝与暖黄对比，封面冲击力强</span></li>
+          <li><span class="work-title">《鸢尾花》</span><span class="work-note">花卉线，女性用户接受度高</span></li>
+          <li><span class="work-title">《麦田与柏树》</span><span class="work-note">夏日旋风，笔触最夸张</span></li>
+        </ul>
+        <p style="margin-top:12px;font-size:13px;color:var(--ink-muted)">
+          <strong>触感工艺：</strong>厚涂笔触做立体压纹，梵高特有的漩涡线用凹凸表现。<br>
+          <strong>内页联动：</strong>点阵页用深蓝点，底部有旋涡装饰线；花卉款用叶形 bullet。
+        </p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="tag gold">系列 03</span>北斋 · 浮世风景</div>
+      <div class="card-meta">4本套装 · 主题：富岳三十六景精选</div>
+      <div class="card-body">
+        <ul class="work-list">
+          <li><span class="work-title">《神奈川冲浪里》</span><span class="work-note">保留一张作为系列锚点</span></li>
+          <li><span class="work-title">《凯风快晴》</span><span class="work-note">红富士，视觉冲击强</span></li>
+          <li><span class="work-title">《甲州石斑泽》</span><span class="work-note">钓者与富士山，竖向构图</span></li>
+          <li><span class="work-title">《江户日本桥》</span><span class="work-note">城市风景，与前三张自然主题形成对比</span></li>
+        </ul>
+        <p style="margin-top:12px;font-size:13px;color:var(--ink-muted)">
+          <strong>触感工艺：</strong>海浪与山脊线条做压纹，富士山轮廓用局部UV凸出。<br>
+          <strong>内页联动：</strong>页脚一朵浪花；竖线页模拟和纸笺纸质感。
+        </p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="tag gold">系列 04</span>克里姆特 · 金色之外</div>
+      <div class="card-meta">4本套装 · 主题：风景与装饰，弱化《吻》的符号感</div>
+      <div class="card-body">
+        <ul class="work-list">
+          <li><span class="work-title">《阿特湖畔的利茨尔贝格》</span><span class="work-note">蓝绿色湖面，少见的克里姆特风景</span></li>
+          <li><span class="work-title">《果园》</span><span class="work-note">春天繁花，装饰性强</span></li>
+          <li><span class="work-title">《白桦林》</span><span class="work-note">竖向树干，封面适配度极高</span></li>
+          <li><span class="work-title">《向日葵田》</span><span class="work-note">暖黄色系，女性送礼安全牌</span></li>
+        </ul>
+        <p style="margin-top:12px;font-size:13px;color:var(--ink-muted)">
+          <strong>触感工艺：</strong>装饰图案局部UV上光+压纹模拟金箔质感；树干纹理用直线压纹。<br>
+          <strong>内页联动：</strong>页边几何装饰线，每页底部一个金色小方块。
+        </p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="tag gold">系列 05</span>透纳 · 光与风暴</div>
+      <div class="card-meta">4本套装 · 主题：浪漫主义光影</div>
+      <div class="card-body">
+        <ul class="work-list">
+          <li><span class="work-title">《雨、蒸汽和速度》</span><span class="work-note">工业革命动感，男性礼物友好</span></li>
+          <li><span class="work-title">《被拖去解体的战舰无畏号》</span><span class="work-note">黄昏、海面、仪式感</span></li>
+          <li><span class="work-title">《奴隶船》</span><span class="work-note">红色海浪，情绪强烈</span></li>
+          <li><span class="work-title">《暴风雪：汽船驶离港口》</span><span class="work-note">抽象风暴，氛围感极强</span></li>
+        </ul>
+        <p style="margin-top:12px;font-size:13px;color:var(--ink-muted)">
+          <strong>触感工艺：</strong>云层和雾气用渐变UV，海浪用流动线条压纹。<br>
+          <strong>内页联动：</strong>米色纸+淡灰天色底纹，横线若隐若现。
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Chinese Series</div>
+    <div class="section-title serif">四、中国古画系列</div>
+
+    <div class="card">
+      <div class="card-title"><span class="tag teal">系列 06</span>宋人花鸟 · 尺幅天地</div>
+      <div class="card-meta">6本套装 · 主题：宋代小品画，东方审美天花板</div>
+      <div class="card-body">
+        <ul class="work-list">
+          <li><span class="work-title">《碧桃图》</span><span class="work-note">故宫藏，粉色桃花，女性市场</span></li>
+          <li><span class="work-title">《出水芙蓉图》</span><span class="work-note">故宫藏，荷花， summer 场景</span></li>
+          <li><span class="work-title">《海棠蛱蝶图》</span><span class="work-note">蛱蝶灵动，细节丰富</span></li>
+          <li><span class="work-title">《白蔷薇图》</span><span class="work-note">清雅留白，极简高级</span></li>
+          <li><span class="work-title">《晴春蝶戏图》</span><span class="work-note">春日气氛，色彩明快</span></li>
+          <li><span class="work-title">《桑枝黄鸟图》</span><span class="work-note">小巧精致，适合小尺寸本</span></li>
+        </ul>
+        <p style="margin-top:12px;font-size:13px;color:var(--ink-muted)">
+          <strong>触感工艺：</strong>工笔羽毛与花瓣纹理做浅压纹；局部UV凸出花蕊。<br>
+          <strong>内页联动：</strong>仿古宣纸色，竖栏设计，页眉淡印一枝花。
+        </p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="tag teal">系列 07</span>明人风雅 · 山水清音</div>
+      <div class="card-meta">4本套装 · 主题：明四家与文人山水</div>
+      <div class="card-body">
+        <ul class="work-list">
+          <li><span class="work-title">沈周《庐山高图》</span><span class="work-note">雄浑，竖向长卷局部</span></li>
+          <li><span class="work-title">文徵明《真赏斋图》</span><span class="work-note">园林小景，文人书斋感</span></li>
+          <li><span class="work-title">唐寅《事茗图》</span><span class="work-note">茶事主题，适合礼品</span></li>
+          <li><span class="work-title">仇英《桃源仙境图》</span><span class="work-note">青绿重彩，视觉华丽</span></li>
+        </ul>
+        <p style="margin-top:12px;font-size:13px;color:var(--ink-muted)">
+          <strong>触感工艺：</strong>山石皴法做压纹，青绿山水用局部UV凸出矿物颜料感。<br>
+          <strong>内页联动：</strong>竖排淡墨山水页眉，横线页脚配小楷题跋。
+        </p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="tag teal">系列 08</span>清初四僧 · 空山独行</div>
+      <div class="card-meta">4本套装 · 主题：个性最强的东方水墨</div>
+      <div class="card-body">
+        <ul class="work-list">
+          <li><span class="work-title">八大山人《荷石水禽图》</span><span class="work-note">白眼向天，个性标签</span></li>
+          <li><span class="work-title">石涛《搜尽奇峰打草稿图》</span><span class="work-note">笔墨自由，适合年轻审美</span></li>
+          <li><span class="work-title">髡残《苍翠凌天图》</span><span class="work-note">苍茫厚重，男性市场</span></li>
+          <li><span class="work-title">弘仁《天都峰图》</span><span class="work-note">极简冷峻，高级感强</span></li>
+        </ul>
+        <p style="margin-top:12px;font-size:13px;color:var(--ink-muted)">
+          <strong>触感工艺：</strong>水墨飞白与山石轮廓做压纹，局部UV模拟宣纸肌理。<br>
+          <strong>内页联动：</strong>米白纸+水墨 bullet 点，页脚一方小印。
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">SKU & Pricing</div>
+    <div class="section-title serif">五、SKU 与定价体系</div>
+
+    <div class="section-desc">产品线命名：<strong>拾锦·画语</strong>。单品命名格式：拾锦·画语｜画家·主题，例如“拾锦·画语｜梵高·杏枝”。</div>
+
+    <table class="price-table">
+      <tr><th>类型</th><th>配置</th><th>零售价</th><th>毛利估算</th></tr>
+      <tr>
+        <td>标准单品</td>
+        <td>压纹封面+主题内页+故事卡</td>
+        <td>¥58-68</td>
+        <td>约50%</td>
+      </tr>
+      <tr>
+        <td>精装单品</td>
+        <td>特种纸封面+丝带书签+腰封礼盒</td>
+        <td>¥78-88</td>
+        <td>约55%</td>
+      </tr>
+      <tr>
+        <td>画家套装（4-6本）</td>
+        <td>套装礼盒+收藏编号卡</td>
+        <td>¥218-298</td>
+        <td>约50%</td>
+      </tr>
+      <tr>
+        <td>限量首发版</td>
+        <td>每款编号1-200+作者印章</td>
+        <td>¥128</td>
+        <td>约60%</td>
+      </tr>
+    </table>
+
+    <table class="sku-table">
+      <tr><th>首批测试 SKU（5款）</th><th>画家</th><th>定价</th><th>测试目的</th></tr>
+      <tr><td>拾锦·画语｜梵高·杏枝</td><td>梵高</td><td>¥68</td><td>花卉线 + 冷门名作认知</td></tr>
+      <tr><td>拾锦·画语｜莫奈·喜鹊</td><td>莫奈</td><td>¥68</td><td>四季主题 + 冷色调</td></tr>
+      <tr><td>拾锦·画语｜北斋·冲浪里</td><td>北斋</td><td>¥58</td><td>流量锚点 + 低价引流</td></tr>
+      <tr><td>拾锦·画语｜克里姆特·白桦林</td><td>克里姆特</td><td>¥68</td><td>装饰性 + 女性审美</td></tr>
+      <tr><td>拾锦·画语｜宋人·出水芙蓉</td><td>宋人</td><td>¥78</td><td>东方线 + 高客单价</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Content</div>
+    <div class="section-title serif">六、内容/话题矩阵</div>
+    <table>
+      <tr><th>平台</th><th>内容方向</th><th>标题示例</th></tr>
+      <tr>
+        <td>小红书</td>
+        <td>冷门名画挖掘 + 触感开箱 + 内页细节</td>
+        <td>“90%的人没见过的梵高” / “把莫奈的冬天捧在手里” / “宋人的花比现在的设计高级1000年”</td>
+      </tr>
+      <tr>
+        <td>抖音</td>
+        <td>压纹工艺特写 + 翻页 ASMR + 工厂实拍</td>
+        <td>“原来名画的笔触是可以摸到的” / “一本笔记本的生产过程”</td>
+      </tr>
+      <tr>
+        <td>淘宝</td>
+        <td>详情页强调“冷门名作+触感工艺+内页联动”</td>
+        <td>主图第一张：压纹特写；第二张：内页；第三张：与印刷本对比</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Sources</div>
+    <div class="section-title serif">七、公版图源建议</div>
+    <div class="card-body" style="font-size:14px;color:var(--ink-light)">
+      <p>优先使用以下开放高清图源，确保公版可商用：</p>
+      <ul style="margin-left:18px;margin-top:8px">
+        <li><strong>Google Arts & Culture</strong> — 大都会、英国国家美术馆等</li>
+        <li><strong>Wikimedia Commons</strong> — 标注 Public Domain 的作品</li>
+        <li><strong>大都会艺术博物馆 Open Access</strong> — 超20万件公版高清图</li>
+        <li><strong>故宫博物院官网</strong> — 宋画小品高清图</li>
+        <li><strong>Rijksmuseum / 荷兰国立博物馆</strong> — 欧洲画作公版图</li>
+      </ul>
+      <p style="margin-top:12px;color:var(--red);font-size:13px">
+        ⚠️ 注意：部分博物馆对高清图有使用条款限制（如不允许直接印刷销售），需逐条确认。建议优先使用明确标注 CC0 / Public Domain 的图档。
+      </p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Next Steps</div>
+    <div class="section-title serif">八、下一步行动清单</div>
+    <div class="todo">
+      <div class="todo-item"><div class="todo-num">1</div><div>本周确认首批5幅画的高清公版图源，完成竖向封面裁切稿</div></div>
+      <div class="todo-item"><div class="todo-num">2</div><div>制作5款压纹印版，重点测试梵高笔触与宋人花瓣两种极端纹理</div></div>
+      <div class="todo-item"><div class="todo-num">3</div><div>完成5款样品生产，拍摄“封面特写+内页翻页+触感对比”素材</div></div>
+      <div class="todo-item"><div class="todo-num">4</div><div>小红书发布3条测试笔记：梵高冷门款、莫奈雪景、宋人荷花</div></div>
+      <div class="todo-item"><div class="todo-num">5</div><div>根据互动数据，选择2个系列深度开发，其余系列暂缓</div></div>
+    </div>
+  </div>
+
+  <div class="highlight-box red">
+    <div class="title">核心风险提示</div>
+    <ul>
+      <li><strong>版权风险：</strong>公版不等于“随便用”，需确认具体图源授权条款与各国版权期限差异。</li>
+      <li><strong>同质化风险：</strong>压纹工艺可被模仿，真正的护城河是选品眼光与系列化内容运营。</li>
+      <li><strong>库存风险：</strong>名画系列SKU多，首批只测5款，不要一次性开模所有系列。</li>
+      <li><strong>价格锚点：</strong>用户心中“名画笔记本”已经有一个低价锚点，必须用触感工艺和包装把价值感做出来。</li>
+    </ul>
+  </div>
+
+</div>
+
+<div class="footer">
+  <div class="footer-brand serif">拾锦 SHIJIN</div>
+  <div class="footer-slogan serif">一寸锦绣，一页日常</div>
+  <div class="footer-meta">
+    拾锦·画语 · 名画系列企划方案<br>
+    AI 刘小排 × 品牌全案策略指南 · 2026.09.01
+  </div>
+</div>
+
+</body>
+</html>
