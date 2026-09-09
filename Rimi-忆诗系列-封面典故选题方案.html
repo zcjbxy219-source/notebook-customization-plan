@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rimi · 忆诗系列封面典故选题方案</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+  :root {
+    --ink: #2A2825;
+    --ink-light: #4A4743;
+    --ink-muted: #8A8680;
+    --paper: #F5F3EC;
+    --paper-warm: #FAF8F2;
+    --green: #4A5D4E;
+    --green-light: #7A9A82;
+    --green-bg: #E8F0E9;
+    --gold: #8A6D3B;
+    --gold-light: #B89A6A;
+    --gold-bg: #F5EFE3;
+    --red: #A85C5C;
+    --red-light: #C98B8B;
+    --border: #DED9CD;
+    --border-light: #ECE8DE;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.85;
+    -webkit-font-smoothing: antialiased;
+  }
+  .serif { font-family: 'Noto Serif SC', serif; }
+  .hero {
+    background: linear-gradient(180deg, var(--paper-warm) 0%, var(--paper) 100%);
+    border-bottom: 1px solid var(--border-light);
+    padding: 64px 24px 48px;
+    text-align: center;
+    position: relative;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 18px; left: 50%;
+    transform: translateX(-50%);
+    width: 40px; height: 2px;
+    background: var(--gold-light);
+  }
+  .hero-brand {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 36px;
+    font-weight: 600;
+    letter-spacing: 8px;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+  .hero-en {
+    font-size: 11px;
+    letter-spacing: 5px;
+    color: var(--ink-muted);
+    text-transform: uppercase;
+    margin-bottom: 22px;
+  }
+  .hero-slogan {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 17px;
+    color: var(--green);
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+  }
+  .hero-sub {
+    font-size: 13px;
+    color: var(--ink-muted);
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+  .container {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 36px 20px 60px;
+  }
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    font-weight: 500;
+  }
+  .section-title {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 24px;
+    letter-spacing: 1px;
+  }
+  .lead {
+    font-size: 15px;
+    color: var(--ink-light);
+    margin-bottom: 28px;
+    line-height: 1.9;
+  }
+  .card {
+    background: var(--paper-warm);
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    padding: 22px 20px;
+    margin-bottom: 16px;
+  }
+  .card-title {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--ink);
+  }
+  .card p {
+    font-size: 14px;
+    color: var(--ink-light);
+    line-height: 1.85;
+    margin-bottom: 8px;
+  }
+  .card p:last-child { margin-bottom: 0; }
+  .tag {
+    display: inline-block;
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 10px;
+    margin-right: 6px;
+    margin-bottom: 6px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+  .tag.green { background: var(--green-bg); color: var(--green); }
+  .tag.gold { background: var(--gold-bg); color: var(--gold); }
+  .tag.red { background: #F5E5E5; color: var(--red); }
+  .theme-card {
+    background: var(--paper-warm);
+    border: 1px solid var(--border-light);
+    border-radius: 14px;
+    padding: 24px;
+    margin-bottom: 18px;
+    position: relative;
+    overflow: hidden;
+  }
+  .theme-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px; height: 100%;
+    background: var(--green-light);
+  }
+  .theme-card.hot::before { background: var(--gold); }
+  .theme-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 14px;
+  }
+  .theme-title {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: 1px;
+  }
+  .theme-origin {
+    font-size: 12px;
+    color: var(--ink-muted);
+    text-align: right;
+    flex-shrink: 0;
+    margin-left: 12px;
+  }
+  .theme-origin strong {
+    display: block;
+    font-size: 13px;
+    color: var(--ink-light);
+    margin-bottom: 2px;
+  }
+  .theme-desc {
+    font-size: 14px;
+    color: var(--ink-light);
+    line-height: 1.85;
+    margin-bottom: 12px;
+  }
+  .theme-detail {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 8px 12px;
+    font-size: 13px;
+    color: var(--ink-light);
+    margin-top: 14px;
+  }
+  .theme-detail dt {
+    color: var(--ink-muted);
+    font-weight: 500;
+  }
+  .theme-detail dd {
+    color: var(--ink-light);
+  }
+  .quote {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 15px;
+    color: var(--green);
+    background: var(--green-bg);
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-top: 14px;
+    line-height: 1.7;
+  }
+  .rec-badge {
+    display: inline-block;
+    font-size: 11px;
+    background: var(--gold);
+    color: #fff;
+    padding: 3px 10px;
+    border-radius: 10px;
+    margin-left: 10px;
+    letter-spacing: 0.5px;
+  }
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  @media (max-width: 600px) {
+    .grid-2 { grid-template-columns: 1fr; }
+    .theme-header { flex-direction: column; }
+    .theme-origin { text-align: left; margin-left: 0; margin-top: 6px; }
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin-top: 10px;
+  }
+  th, td {
+    padding: 10px 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-light);
+    vertical-align: top;
+  }
+  th {
+    color: var(--ink-muted);
+    font-weight: 500;
+    background: var(--paper-warm);
+  }
+  td { color: var(--ink-light); }
+  .note {
+    background: var(--gold-bg);
+    border-left: 3px solid var(--gold);
+    padding: 14px 16px;
+    border-radius: 0 8px 8px 0;
+    font-size: 13px;
+    color: var(--ink-light);
+    margin-top: 20px;
+    line-height: 1.8;
+  }
+  .section { margin-bottom: 42px; }
+  .footer {
+    text-align: center;
+    padding: 40px 24px;
+    border-top: 1px solid var(--border-light);
+    font-size: 12px;
+    color: var(--ink-muted);
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-brand serif">Rimi</div>
+  <div class="hero-en">Poetry Memory Series</div>
+  <div class="hero-slogan serif">忆诗随笔 · 封面典故选题</div>
+  <div class="hero-sub">打捞时光私藏之美 —— 为笔记本封面寻找有文化画面感、适合书法与植物排版的古典典故</div>
+</div>
+
+<div class="container">
+
+  <div class="section">
+    <div class="section-label">Style Reference</div>
+    <div class="section-title serif">一、参考图风格定位</div>
+    <div class="lead">你发来的两张参考图奠定了忆诗系列的视觉基调：<strong>古籍书页 + 植物意象 + 竖排书法 + 大量留白</strong>。第一张是芭蕉叶叠在苏轼词上，第二张是鸢尾花从宋词页面边缘生长出来。核心不是"画一个典故"，而是让<strong>植物从古书页里长出来</strong>，文字成为画面的一部分。</div>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">视觉关键词</div>
+        <p><span class="tag green">竖排文字</span><span class="tag gold">古籍版式</span><span class="tag green">工笔植物</span><span class="tag gold">留白</span><span class="tag green">素雅配色</span><span class="tag red">新中式</span></p>
+      </div>
+      <div class="card">
+        <div class="card-title">文案关键词</div>
+        <p><span class="tag green">温暖</span><span class="tag gold">怀旧</span><span class="tag green">治愈</span><span class="tag gold">安静</span><span class="tag green">日常仪式</span><span class="tag gold">私人记忆</span></p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">设计原则</div>
+      <p><strong>① 物象优先：</strong>每个封面先确定一个核心植物/物象（芭蕉、梅、茶、蝶等），文字依附其上。</p>
+      <p><strong>② 文字即画面：</strong>竖排书法或古籍版式不是说明文字，而是构图元素，可与植物穿插、叠压、留白。</p>
+      <p><strong>③ 情绪克制：</strong>避开说教感强的典故，选择有画面、有余味、能引发私人回忆的意象。</p>
+      <p><strong>④ 现代转译：</strong>不画古人故事，用当代设计语言重新排列传统元素——让古籍"活"在 today's notebook 上。</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Shortlist</div>
+    <div class="section-title serif">二、推荐典故（首批候选 15 个）</div>
+    <div class="lead">以下按<strong>情感调性</strong>分组，每个典故都给出了出处、核心意象、推荐植物、文案金句和版式建议。打 <span class="rec-badge">首发推荐</span> 的是画面感最强、植物明确、最易做成系列的 5 个。</div>
+
+    <div class="theme-card hot">
+      <div class="theme-header">
+        <div class="theme-title">蕉窗听雨<span class="rec-badge">首发推荐</span></div>
+        <div class="theme-origin"><strong>出处</strong>宋词/文人生活意象</div>
+      </div>
+      <div class="theme-desc">雨打芭蕉是中国文人最安静的意象。窗内是书，窗外是雨，芭蕉叶大，正好承接雨声。适合做成"植物从书页里长出来"的典型构图。</div>
+      <div class="theme-detail">
+        <dt>核心物象</dt><dd>芭蕉叶、雨痕、窗格、古籍页</dd>
+        <dt>情感关键词</dt><dd>安静、独处、治愈、听雨</dd>
+        <dt>推荐植物</dt><dd>芭蕉（大叶、绿中带黄）</dd>
+        <dt>版式建议</dt><dd>竖排小字从蕉叶缝隙中露出，底部大面积留白，像雨打在窗纸上</dd>
+      </div>
+      <div class="quote">"一夜芭蕉雨，半窗旧梦声。"</div>
+    </div>
+
+    <div class="theme-card hot">
+      <div class="theme-header">
+        <div class="theme-title">煮雪烹茶<span class="rec-badge">首发推荐</span></div>
+        <div class="theme-origin"><strong>出处</strong>《红楼梦》/ 明清文人笔记</div>
+      </div>
+      <div class="theme-desc">扫雪煮茶是冬日最奢侈的仪式感。松风、竹炉、雪水、茶汤——一个关于慢与温度的意象。封面可做得非常"暖"，与冷色雪形成对比。</div>
+      <div class="theme-detail">
+        <dt>核心物象</dt><dd>雪、茶壶、松枝、竹炉、热汤</dd>
+        <dt>情感关键词</dt><dd>温暖、冬日、仪式感、慢生活</dd>
+        <dt>推荐植物</dt><dd>松枝、山茶花</dd>
+        <dt>版式建议</dt><dd>一角松枝斜入，中间留白如热气升腾，竖排小字如茶烟</dd>
+      </div>
+      <div class="quote">"松风竹炉，提壶相呼。"</div>
+    </div>
+
+    <div class="theme-card hot">
+      <div class="theme-header">
+        <div class="theme-title">庄周梦蝶<span class="rec-badge">首发推荐</span></div>
+        <div class="theme-origin"><strong>出处</strong>《庄子·齐物论》</div>
+      </div>
+      <div class="theme-desc">你点名要的典故。虚实相生、物我两忘，最适合做"梦"与"醒"的朦胧感。蝴蝶不宜写实，用淡墨或剪影即可，避免俗气。</div>
+      <div class="theme-detail">
+        <dt>核心物象</dt><dd>蝶、梦、花影、虚实边界</dd>
+        <dt>情感关键词</dt><dd>梦幻、哲思、轻盈、忘我</dd>
+        <dt>推荐植物</dt><dd>鸢尾、芍药、梦中花影</dd>
+        <dt>版式建议</dt><dd>蝴蝶半透明叠在竖排文字上，文字如梦境碎片，边缘虚化</dd>
+      </div>
+      <div class="quote">"不知是蝶入我梦，还是我入蝶梦。"</div>
+    </div>
+
+    <div class="theme-card hot">
+      <div class="theme-header">
+        <div class="theme-title">踏雪寻梅<span class="rec-badge">首发推荐</span></div>
+        <div class="theme-origin"><strong>出处</strong>宋·卢梅坡 / 林逋典故</div>
+      </div>
+      <div class="theme-desc">雪地里找梅花，是中国美学里"苦中寻美"的极致。梅枝横斜、雪痕点点，画面简洁却有张力，适合极简留白构图。</div>
+      <div class="theme-detail">
+        <dt>核心物象</dt><dd>梅枝、雪痕、驴蹄印、远山</dd>
+        <dt>情感关键词</dt><dd>清寂、坚持、诗意、寻美</dd>
+        <dt>推荐植物</dt><dd>红梅枝（疏朗、留白）</dd>
+        <dt>版式建议</dt><dd>一枝红梅从底部斜出，上方大面积白雪留白，竖排字如一行脚印</dd>
+      </div>
+      <div class="quote">"寻常一样窗前月，才有梅花便不同。"</div>
+    </div>
+
+    <div class="theme-card hot">
+      <div class="theme-header">
+        <div class="theme-title">秉烛夜游<span class="rec-badge">首发推荐</span></div>
+        <div class="theme-origin"><strong>出处</strong>《古诗十九首》/ 李白《春夜宴桃李园序》</div>
+      </div>
+      <div class="theme-desc">"昼短苦夜长，何不秉烛游"——古人对时间的珍惜与浪漫。烛光、夜花、月下，适合做温暖暗调，情绪比白天更私人。</div>
+      <div class="theme-detail">
+        <dt>核心物象</dt><dd>烛光、夜花、月影、烛泪</dd>
+        <dt>情感关键词</dt><dd>珍惜、浪漫、夜晚、独处</dd>
+        <dt>推荐植物</dt><dd>海棠、夜来香、昙花</dd>
+        <dt>版式建议</dt><dd>暖黄烛光从一角透出，花枝在暗部若隐若现，竖排小字如灯下读书</dd>
+      </div>
+      <div class="quote">"况阳春召我以烟景，大块假我以文章。"</div>
+    </div>
+
+    <div class="theme-card">
+      <div class="theme-header">
+        <div class="theme-title">曲水流觞</div>
+        <div class="theme-origin"><strong>出处</strong>《兰亭集序》</div>
+      </div>
+      <div class="theme-desc">兰亭雅集，酒杯随流水而下。这是一个关于文人雅集、自然与诗意的意象。画面可做得非常"流动"，适合长条构图。</div>
+      <div class="theme-detail">
+        <dt>核心物象</dt><dd>流水、酒杯、兰亭、兰草</dd>
+        <dt>情感关键词</dt><dd>雅集、流动、友谊、春日</dd>
+        <dt>推荐植物</dt><dd>兰草、水边蒲草</dd>
+        <dt>版式建议</dt><dd>水流呈S形贯穿封面，竖排文字如水中漂浮的诗句</dd>
+      </div>
+      <div class="quote">"一觞一咏，亦足以畅叙幽情。"</div>
+    </div>
+
+    <div class="theme-card">
+      <div class="theme-header">
+        <div class="theme-title">月下独酌</div>
+        <div class="theme-origin"><strong>出处</strong>唐·李白</div>
+      </div>
+      <div class="theme-desc">李白举杯邀明月，对影成三人。孤独被转化成了浪漫。月亮、桂花、酒杯、影子——元素极简但情绪饱满。</div>
+      <div class="theme-detail">
+        <dt>核心物象</dt><dd>月、酒、影子、桂花</dd>
+        <dt>情感关键词</dt><dd>孤独、浪漫、自洽、清冷</dd>
+        <dt>推荐植物</dt><dd>桂花枝</dd>
+        <dt>版式建议</dt><dd>一轮淡月占画面 1/3，桂影斜伸，竖排字如月华倾泻</dd>
+      </div>
+      <div class="quote">"举杯邀明月，对影成三人。"</div>
+    </div>
+
+    <div class="theme-card">
+      <div class="theme-header">
+        <div class="theme-title">青梅竹马</div>
+        <div class="theme-origin"><strong>出处</strong>唐·李白《长干行》</div>
+      </div>
+      <div class="theme-desc">"郎骑竹马来，绕床弄青梅"——关于童年、两小无猜、青涩时光。青梅枝、竹马影，适合温暖清新的春夏调性。</div>
+      <div class="theme-detail">
+        <dt>核心物象</dt><dd>青梅、竹马、庭院、童年</dd>
+        <dt>情感关键词</dt><dd>童年、青涩、怀旧、温柔</dd>
+        <dt>推荐植物</dt><dd>青梅枝、青杏</dd>
+        <dt>版式建议</dt><dd>青梅果从书页上方垂落，竖排小字如儿时信笺</dd>
+      </div>
+      <div class="quote">"青梅竹马，两小无猜。"</div>
+    </div>
+
+    <div class="theme-card">
+      <div class="theme-header">
+        <div class="theme-title">莼鲈之思</div>
+        <div class="theme-origin"><strong>出处</strong>《晋书·张翰传》</div>
+      </div>
+      <div class="theme-desc">张翰见秋风起，思念故乡莼菜羹、鲈鱼脍，辞官归去。是中国文化里"思乡"最含蓄美丽的表达，适合秋日系列。</div>
+      <div class="theme-detail">
+        <dt>核心物象</dt><dd>莼菜、鲈鱼、秋水、归舟</dd>
+        <dt>情感关键词</dt><dd>思乡、归隐、秋意、淡然</dd>
+        <dt>推荐植物</dt><dd>莼菜叶、芦苇</dd>
+        <dt>版式建议</dt><dd>水面波纹做底纹，一叶小舟+莼菜，竖排字如远方来信</dd>
+      </div>
+      <div class="quote">"秋风起兮木叶飞，吴江水兮鲈正肥。"</div>
+    </div>
+
+    <div class="theme-card">
+      <div class="theme-header">
+        <div class="theme-title">梅妻鹤子</div>
+        <div class="theme-origin"><strong>出处</strong>宋·林逋</div>
+      </div>
+      <div class="theme-desc">林逋以梅为妻、以鹤为子，终身不仕不娶。最极致的隐逸与清高。梅枝横斜、鹤影独立，画面清冷高级。</div>
+      <div class="theme-detail">
+        <dt>核心物象</dt><dd>梅、鹤、孤山、湖水</dd>
+        <dt>情感关键词</dt><dd>隐逸、清高、孤独、风骨</dd>
+        <dt>推荐植物</dt><dd>白梅枝</dd>
+        <dt>版式建议</dt><dd>一枝白梅斜出，鹤影淡墨点缀，竖排字如隐士手书</dd>
+      </div>
+      <div class="quote">"疏影横斜水清浅，暗香浮动月黄昏。"</div>
+    </div>
+
+    <div class="theme-card">
+      <div class="theme-header">
+        <div class="theme-title">采菊东篱</div>
+        <div class="theme-origin"><strong>出处</strong>晋·陶渊明《饮酒》</div>
+      </div>
+      <div class="theme-desc">陶渊明采菊东篱，悠然见南山。关于归隐、田园、慢生活。菊花、篱笆、远山，画面闲适。</div>
+      <div class="theme-detail">
+        <dt>核心物象</dt><dd>菊花、东篱、南山、飞鸟</dd>
+        <dt>情感关键词</dt><dd>归隐、闲适、田园、慢</dd>
+        <dt>推荐植物</dt><dd>野菊、雏菊</dd>
+        <dt>版式建议</dt><dd>野菊从底部漫出，远处淡墨南山，竖排字如篱笆上的藤蔓</dd>
+      </div>
+      <div class="quote">"采菊东篱下，悠然见南山。"</div>
+    </div>
+
+    <div class="theme-card">
+      <div class="theme-header">
+        <div class="theme-title">一叶知秋</div>
+        <div class="theme-origin"><strong>出处</strong>《淮南子·说山训》</div>
+      </div>
+      <div class="theme-desc">一片梧桐叶落，便知秋天来了。敏感、细腻、略带忧伤。梧桐叶的形态非常适合做封面主体。</div>
+      <div class="theme-detail">
+        <dt>核心物象</dt><dd>梧桐叶、秋霜、落叶</dd>
+        <dt>情感关键词</dt><dd>敏感、时序、离别、温柔</dd>
+        <dt>推荐植物</dt><dd>梧桐叶</dd>
+        <dt>版式建议</dt><dd>一枚大梧桐叶占画面半边，叶脉清晰如时间纹理，竖排字在叶背若隐若现</dd>
+      </div>
+      <div class="quote">"一叶落而知天下秋。"</div>
+    </div>
+
+    <div class="theme-card">
+      <div class="theme-header">
+        <div class="theme-title">杏花春雨</div>
+        <div class="theme-origin"><strong>出处</strong>宋·志南《绝句》</div>
+      </div>
+      <div class="theme-desc">"沾衣欲湿杏花雨，吹面不寒杨柳风"——江南春天最柔软的意象。杏花、细雨、杨柳，画面清新明媚。</div>
+      <div class="theme-detail">
+        <dt>核心物象</dt><dd>杏花、春雨、杨柳、江南</dd>
+        <dt>情感关键词</dt><dd>春日、柔软、江南、治愈</dd>
+        <dt>推荐植物</dt><dd>杏花枝、柳条</dd>
+        <dt>版式建议</dt><dd>杏花从一角探出，细雨如淡墨点洒，竖排字如江南烟雨</dd>
+      </div>
+      <div class="quote">"沾衣欲湿杏花雨，吹面不寒杨柳风。"</div>
+    </div>
+
+    <div class="theme-card">
+      <div class="theme-header">
+        <div class="theme-title">枕书听雨</div>
+        <div class="theme-origin"><strong>出处</strong>宋·李清照 / 文人生活意象</div>
+      </div>
+      <div class="theme-desc">枕着书、听着雨，是文人最日常的奢侈。书卷、雨声、枕畔、茶香——一个关于"把平凡日子过成诗"的意象。</div>
+      <div class="theme-detail">
+        <dt>核心物象</dt><dd>书卷、雨、枕、茶盏</dd>
+        <dt>情感关键词</dt><dd>日常、治愈、书卷气、慢</dd>
+        <dt>推荐植物</dt><dd>竹叶、芭蕉叶</dd>
+        <dt>版式建议</dt><dd>半卷古书+竹叶垂落，竖排字如书签般夹在书页间</dd>
+      </div>
+      <div class="quote">"枕上诗书闲处好，门前风景雨来佳。"</div>
+    </div>
+
+    <div class="theme-card">
+      <div class="theme-header">
+        <div class="theme-title">南风入弦</div>
+        <div class="theme-origin"><strong>出处</strong>《孔子家语》/ 古琴意象</div>
+      </div>
+      <div class="theme-desc">南风温润，可解民愠；古琴入弦，可慰平生。关于音乐、夏日、清风。适合做清爽夏日常景。</div>
+      <div class="theme-detail">
+        <dt>核心物象</dt><dd>古琴、南风、蕉叶、琴弦</dd>
+        <dt>情感关键词</dt><dd>清凉、音乐、夏日、闲适</dd>
+        <dt>推荐植物</dt><dd>芭蕉叶、竹叶</dd>
+        <dt>版式建议</dt><dd>琴弦如竖排文字，蕉叶随风斜出，画面有韵律感</dd>
+      </div>
+      <div class="quote">"南风之薰兮，可以解吾民之愠兮。"</div>
+    </div>
+
+  </div>
+
+  <div class="section">
+    <div class="section-label">First Launch</div>
+    <div class="section-title serif">三、首批 5 款首发建议</div>
+    <div class="lead">从 15 个候选里挑出画面感最强、植物明确、情感最普世、最容易拍成小红书的 5 款。它们覆盖了四季与四种核心情绪。</div>
+    <table>
+      <tr><th>SKU</th><th>季节</th><th>核心情绪</th><th>视觉优势</th></tr>
+      <tr><td><strong>蕉窗听雨</strong></td><td>夏</td><td>安静独处</td><td>芭蕉叶型强，与竖排文字天然契合</td></tr>
+      <tr><td><strong>煮雪烹茶</strong></td><td>冬</td><td>温暖仪式</td><td>冷暖对比，社交传播力强</td></tr>
+      <tr><td><strong>庄周梦蝶</strong></td><td>春/四季</td><td>梦幻哲思</td><td>用户点名，虚实朦胧最好拍</td></tr>
+      <tr><td><strong>踏雪寻梅</strong></td><td>冬</td><td>清寂诗意</td><td>红梅白雪，强视觉符号</td></tr>
+      <tr><td><strong>秉烛夜游</strong></td><td>秋/夜</td><td>珍惜浪漫</td><td>暖光暗调，情绪最私人</td></tr>
+    </table>
+    <div class="note">
+      <strong>首发策略：</strong>5 款不要同时上。建议先用 <strong>蕉窗听雨</strong> 和 <strong>煮雪烹茶</strong> 两款测水温——前者完美对应参考图风格，后者冬季应季、仪式感情绪强。跑通后再上庄周梦蝶、踏雪寻梅、秉烛夜游。
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Visual Guide</div>
+    <div class="section-title serif">四、视觉执行规范</div>
+    <div class="card">
+      <div class="card-title">色彩体系</div>
+      <p><strong>主色：</strong>古籍纸色 #F5F3EC / 淡赭石 #D4C4A8（做旧感）</p>
+      <p><strong>辅色：</strong>松烟绿 #4A5D4E / 朱砂红 #A85C5C / 藤黄 #C9A66B</p>
+      <p><strong>文字色：</strong>浓墨 #2A2825 / 淡墨 #8A8680（模拟古籍墨色层次）</p>
+      <p><strong>禁忌：</strong>避免高饱和、荧光色、纯黑纯白。所有色都带 5-15% 灰度，像被时间洗过。</p>
+    </div>
+    <div class="card">
+      <div class="card-title">字体与排版</div>
+      <p><strong>书法字：</strong>可用苏轼/黄庭坚行书风格字体（站酷可找"演示悠然小楷"、"方正清刻本悦宋"等），或直接用古籍刻本字体。</p>
+      <p><strong>竖排规则：</strong>从右至左，字间距略大于行间距；单条竖排不超过 15 字，留出"呼吸感"。</p>
+      <p><strong>文字与植物关系：</strong>文字可被植物局部遮挡（营造叠压感），但核心词组必须完整可读。植物是前景，文字是中景，留白是背景。</p>
+    </div>
+    <div class="card">
+      <div class="card-title">植物画法</div>
+      <p><strong>风格：</strong>工笔淡彩或没骨画法，避免卡通化。线条要细、颜色要淡、边缘要虚。</p>
+      <p><strong>姿态：</strong>植物要从画面边缘自然生长进入，不要居中对称。蕉叶可大幅遮挡，梅花要疏朗，杏花要轻盈。</p>
+      <p><strong>配色：</strong>植物色与纸色形成低对比，像"从古籍里长出来"而不是"贴在上面"。</p>
+    </div>
+    <div class="card">
+      <div class="card-title">封面信息层级</div>
+      <p><strong>第一层（最大）：</strong>植物主体 —— 决定视觉记忆</p>
+      <p><strong>第二层（中等）：</strong>典故主题词（如"蕉窗听雨"）—— 书法大字或宋体大字</p>
+      <p><strong>第三层（最小）：</strong>出处诗句 / 品牌名 Rimi —— 竖排小字，放在留白处</p>
+      <p><strong>品牌标识：</strong>Rimi 用最小字号放在封面底部或书脊位置，不要抢主体。</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Next Step</div>
+    <div class="section-title serif">五、下一步动作</div>
+    <div class="card">
+      <div class="card-title">本周可推进</div>
+      <p><strong>1. 定画稿：</strong>从 5 款首发中选 1-2 个先出效果图（建议蕉窗听雨 + 煮雪烹茶）。</p>
+      <p><strong>2. 找字库：</strong>确定竖排书法字体（刻本/手写/碑帖三种方向各试一版）。</p>
+      <p><strong>3. 做样品：</strong>用工厂打样 1-2 本，拍实物图发小红书测水温。</p>
+      <p><strong>4. 储备第二梯队：</strong>庄周梦蝶、踏雪寻梅、秉烛夜游先出草图，等首发反馈。</p>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  <div class="serif" style="font-size:16px; color:var(--ink); margin-bottom:6px;">Rimi</div>
+  <div style="font-size:12px; color:var(--green); margin-bottom:8px;">打捞时光私藏之美</div>
+  <div>忆诗随笔系列 · 封面典故选题方案 · 2026.09.09</div>
+</div>
+
+</body>
+</html>
