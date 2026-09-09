@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rimi · 忆诗系列文案与生图提示词</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+  :root {
+    --ink: #2A2825; --ink-light: #4A4743; --ink-muted: #8A8680;
+    --paper: #F5F3EC; --paper-warm: #FAF8F2;
+    --green: #4A5D4E; --green-light: #7A9A82; --green-bg: #E8F0E9;
+    --gold: #8A6D3B; --gold-light: #B89A6A; --gold-bg: #F5EFE3;
+    --red: #A85C5C; --red-light: #C98B8B;
+    --border: #DED9CD; --border-light: #ECE8DE;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Noto Sans SC', sans-serif; background: var(--paper); color: var(--ink); line-height: 1.85; -webkit-font-smoothing: antialiased; }
+  .serif { font-family: 'Noto Serif SC', serif; }
+  .hero { background: linear-gradient(180deg, var(--paper-warm) 0%, var(--paper) 100%); border-bottom: 1px solid var(--border-light); padding: 64px 24px 48px; text-align: center; position: relative; }
+  .hero::before { content: ''; position: absolute; top: 18px; left: 50%; transform: translateX(-50%); width: 40px; height: 2px; background: var(--gold-light); }
+  .hero-brand { font-family: 'Noto Serif SC', serif; font-size: 36px; font-weight: 600; letter-spacing: 8px; margin-bottom: 8px; }
+  .hero-en { font-size: 11px; letter-spacing: 5px; color: var(--ink-muted); text-transform: uppercase; margin-bottom: 22px; }
+  .hero-slogan { font-family: 'Noto Serif SC', serif; font-size: 17px; color: var(--green); letter-spacing: 2px; margin-bottom: 10px; }
+  .hero-sub { font-size: 13px; color: var(--ink-muted); max-width: 540px; margin: 0 auto; line-height: 1.7; }
+  .container { max-width: 720px; margin: 0 auto; padding: 36px 20px 60px; }
+  .section-label { font-size: 11px; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; margin-bottom: 6px; font-weight: 500; }
+  .section-title { font-family: 'Noto Serif SC', serif; font-size: 24px; font-weight: 500; margin-bottom: 24px; letter-spacing: 1px; }
+  .lead { font-size: 15px; color: var(--ink-light); margin-bottom: 28px; line-height: 1.9; }
+  .card { background: var(--paper-warm); border: 1px solid var(--border-light); border-radius: 12px; padding: 22px 20px; margin-bottom: 16px; }
+  .card-title { font-family: 'Noto Serif SC', serif; font-size: 17px; font-weight: 600; margin-bottom: 10px; }
+  .card p { font-size: 14px; color: var(--ink-light); line-height: 1.85; margin-bottom: 8px; }
+  .card p:last-child { margin-bottom: 0; }
+  .theme-card { background: var(--paper-warm); border: 1px solid var(--border-light); border-radius: 14px; padding: 24px; margin-bottom: 20px; position: relative; overflow: hidden; }
+  .theme-card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--green-light); }
+  .theme-card.hot::before { background: var(--gold); }
+  .theme-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 14px; }
+  .theme-title { font-family: 'Noto Serif SC', serif; font-size: 22px; font-weight: 600; letter-spacing: 1px; }
+  .theme-origin { font-size: 12px; color: var(--ink-muted); text-align: right; flex-shrink: 0; margin-left: 12px; }
+  .theme-origin strong { display: block; font-size: 13px; color: var(--ink-light); margin-bottom: 2px; }
+  .rec-badge { display: inline-block; font-size: 11px; background: var(--gold); color: #fff; padding: 3px 10px; border-radius: 10px; margin-left: 10px; letter-spacing: 0.5px; }
+  .block-label { font-size: 12px; letter-spacing: 2px; color: var(--gold); font-weight: 500; margin: 16px 0 8px; border-top: 1px dashed var(--border); padding-top: 12px; }
+  .block-label:first-of-type { border-top: none; padding-top: 0; }
+  .poem { font-family: 'Noto Serif SC', serif; background: var(--green-bg); border-radius: 8px; padding: 14px 16px; margin-bottom: 10px; line-height: 2; }
+  .poem .src { display: block; font-size: 12px; color: var(--ink-muted); font-family: 'Noto Sans SC', sans-serif; margin-top: 6px; }
+  .poem .use { display: inline-block; font-size: 11px; background: var(--gold-bg); color: var(--gold); padding: 2px 8px; border-radius: 8px; margin-right: 6px; }
+  .role-row { font-size: 13px; color: var(--ink-light); margin-bottom: 6px; }
+  .role-row b { color: var(--ink); font-weight: 600; }
+  pre { font-family: 'SF Mono', Consolas, monospace; font-size: 12px; line-height: 1.6; background: #2A2825; color: #E8E0D0; padding: 14px 16px; border-radius: 8px; overflow-x: auto; white-space: pre-wrap; word-break: break-word; margin: 8px 0; }
+  .cn-prompt { font-size: 13.5px; color: var(--ink-light); background: var(--gold-bg); border-radius: 8px; padding: 12px 14px; line-height: 1.8; margin-bottom: 8px; }
+  .neg { font-size: 12.5px; color: var(--red); background: #F5E5E5; border-radius: 8px; padding: 10px 14px; line-height: 1.7; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 10px; }
+  th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+  th { color: var(--ink-muted); font-weight: 500; background: var(--paper-warm); }
+  td { color: var(--ink-light); }
+  .note { background: var(--gold-bg); border-left: 3px solid var(--gold); padding: 14px 16px; border-radius: 0 8px 8px 0; font-size: 13px; color: var(--ink-light); margin-top: 20px; line-height: 1.8; }
+  .section { margin-bottom: 42px; }
+  .footer { text-align: center; padding: 40px 24px; border-top: 1px solid var(--border-light); font-size: 12px; color: var(--ink-muted); }
+  @media (max-width: 600px) { .theme-header { flex-direction: column; } .theme-origin { text-align: left; margin-left: 0; margin-top: 6px; } }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-brand serif">Rimi</div>
+  <div class="hero-en">Poetry Memory · Copy & Prompt</div>
+  <div class="hero-slogan serif">忆诗随笔 · 诗词文案与生图提示词</div>
+  <div class="hero-sub">打捞时光私藏之美 —— 配套《封面典故选题方案》，为 15 个典故各提供分层诗词排版文字 + AI 出图提示词</div>
+</div>
+
+<div class="container">
+
+  <div class="section">
+    <div class="section-label">How to Use</div>
+    <div class="section-title serif">使用说明</div>
+    <div class="lead">本册配合 <a href="Rimi-忆诗系列-封面典故选题方案.html" style="color:var(--green)">《封面典故选题方案》</a> 使用。每个典故给出两部分可直接落地的素材：<br><strong>① 诗词排版文字</strong>——分三层（封面主字 / 竖排正文 / 角落题跋），不是只一句金句，够你做满封面和内页；<br><strong>② 生图提示词</strong>——中文描述 + 英文 Prompt（直接喂 Midjourney / SD / 即梦等）+ 通用负面词。首批 5 款标注 <span class="rec-badge">首发</span>，最详。</div>
+    <div class="card">
+      <div class="card-title">排版分层逻辑</div>
+      <p><b>封面主字：</b>典故主题词（书法大字，已在选题方案定调），此处给可选变体与出处。</p>
+      <p><b>竖排正文：</b>2-3 段相关诗词原文，适合竖排铺在书页/封面中景，文字与植物穿插。</p>
+      <p><b>角落题跋：</b>出处 + 作者小字，放留白处，像古人钤印题款。</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Image Prompt Baseline</div>
+    <div class="section-title serif">通用生图规范（所有款式共用）</div>
+    <div class="card">
+      <div class="card-title">风格锚定（写进每句英文 Prompt 开头）</div>
+      <p>Vertical A5 notebook cover design, Chinese neo-classical aesthetic, aged rice-paper book page background with faint vertical classical Chinese typography, gongbi light-color botanical illustration, ink-wash texture, generous negative space, soft natural light, muted earthy palette, premium stationery photography, no border, minimalist.</p>
+    </div>
+    <div class="card">
+      <div class="card-title">色彩 / 比例 / 字体</div>
+      <p><b>比例：</b>--ar 2:3（竖版封面）；--ar 3:4 也可。--stylize 建议 50-100，避免过高导致文字崩坏。</p>
+      <p><b>配色：</b>古籍纸色 #F5F3EC、淡赭石 #D4C4A8、松烟绿 #4A5D4E、朱砂红 #A85C5C、藤黄 #C9A66B。所有色带 5-15% 灰度。</p>
+      <p><b>字体：</b>竖排书法用刻本/行书风；Midjourney 加 "Chinese calligraphy, vertical text, Song dynasty woodblock style"；SD 用中文书法 LoRA。</p>
+    </div>
+    <div class="card">
+      <div class="card-title">通用负面词（Negative Prompt）</div>
+      <p class="neg">modern sans-serif font, high saturation, neon color, cartoon, anime, 3D render, clay, cluttered composition, full-bleed pattern, gold gradient, watermark, logo, deformed text, gibberish, blurry plant, plastic texture, western illustration style</p>
+    </div>
+  </div>
+
+  <!-- ============ 1 蕉窗听雨 ============ -->
+  <div class="section">
+    <div class="section-label">Shortlist 01</div>
+    <div class="section-title serif">二、各典故文案与生图提示词</div>
+
+    <div class="theme-card hot">
+      <div class="theme-header">
+        <div class="theme-title">蕉窗听雨<span class="rec-badge">首发</span></div>
+        <div class="theme-origin"><strong>出处</strong>宋词 · 文人听雨意象</div>
+      </div>
+
+      <div class="block-label">诗词排版文字</div>
+      <div class="role-row"><b>封面主字：</b>蕉窗听雨 / 可选变体「听雨」</div>
+      <div class="poem">
+        <span class="use">竖排正文</span>窗前谁种芭蕉树，阴满中庭。叶叶心心，舒卷有余情。<span class="src">—— 李清照《添字丑奴儿》</span>
+      </div>
+      <div class="poem">
+        <span class="use">竖排正文</span>少年听雨歌楼上，红烛昏罗帐。壮年听雨客舟中，江阔云低断雁叫西风。而今听雨僧庐下，鬓已星星也。一任阶前、点滴到天明。<span class="src">—— 蒋捷《虞美人·听雨》</span>
+      </div>
+      <div class="poem">
+        <span class="use">角落题跋</span>一声梧叶一声秋，一点芭蕉一点愁。<span class="src">—— 徐再思《水仙子·夜雨》</span>
+      </div>
+      <div class="poem">
+        <span class="use">内页可印</span>伤心枕上三更雨，点滴霖霪。愁损北人不惯起来听。<span class="src">—— 李清照《添字丑奴儿》</span>
+      </div>
+
+      <div class="block-label">生图提示词</div>
+      <div class="cn-prompt">竖版 A5 笔记本封面。背景为做旧米黄古籍书页，竖排淡墨宋词若隐若现。画面右侧一大片芭蕉叶从书页边缘生长进入，叶脉清晰、绿中带黄，叶尖垂落雨痕水珠。左下角大面积留白如雨打窗纸。整体安静、湿润、治愈。</div>
+      <pre>Vertical A5 notebook cover, Chinese neo-classical aesthetic, aged rice-paper book page background with faint vertical classical Chinese calligraphy, a large banana leaf with visible veins growing from the right page edge in gongbi light-color style, green with hints of yellow, raindrop droplets on leaf tip, generous negative space at lower left like rain on window paper, soft moist tranquil mood, ink-wash texture, muted earthy palette (paper beige, pine-green, ink), premium stationery photography, no border, minimalist --ar 2:3 --stylize 80</pre>
+    </div>
+
+    <!-- ============ 2 煮雪烹茶 ============ -->
+    <div class="theme-card hot">
+      <div class="theme-header">
+        <div class="theme-title">煮雪烹茶<span class="rec-badge">首发</span></div>
+        <div class="theme-origin"><strong>出处</strong>明清文人笔记 · 扫雪煮茶</div>
+      </div>
+      <div class="block-label">诗词排版文字</div>
+      <div class="role-row"><b>封面主字：</b>煮雪烹茶 / 可选「雪水茶烟」</div>
+      <div class="poem">
+        <span class="use">竖排正文</span>活水还须活火烹，自临钓石取深清。大瓢贮月归春瓮，小杓分江入夜瓶。雪乳已翻煎处脚，松风忽作泻时声。<span class="src">—— 苏轼《汲江煎茶》</span>
+      </div>
+      <div class="poem">
+        <span class="use">竖排正文</span>蟹眼已过鱼眼生，飕飕欲作松风鸣。蒙茸出磨细珠落，眩转绕瓯飞雪轻。<span class="src">—— 苏轼《试院煎茶》</span>
+      </div>
+      <div class="poem">
+        <span class="use">角落题跋</span>融雪煎香茗，调酥煮乳糜。<span class="src">—— 白居易《晚起》</span>
+      </div>
+      <div class="poem">
+        <span class="use">内页可印</span>一碗喉吻润，两碗破孤闷，三碗搜枯肠，唯有文字五千卷。<span class="src">—— 卢仝《走笔谢孟谏议寄新茶》</span>
+      </div>
+
+      <div class="block-label">生图提示词</div>
+      <div class="cn-prompt">竖版 A5 封面。做旧书页背景。画面左上角一枝墨绿松枝斜入，下方一只素白陶茶壶，壶口升腾淡暖茶烟（用留白表现热气）。雪点疏落飘在纸面。松绿与暖白对比，冬日和煦。右上留白如茶烟升腾。</div>
+      <pre>Vertical A5 notebook cover, Chinese neo-classical aesthetic, aged rice-paper background with faint vertical calligraphy, a dark-green pine branch entering from top-left, a plain white ceramic teapot below with faint warm tea steam rising as negative space, scattered snow dots on paper, cool-warm contrast, tranquil winter warmth, ink-wash texture, muted palette (paper beige, pine-green, warm white accent), premium stationery photography, no border, minimalist --ar 2:3 --stylize 80</pre>
+    </div>
+
+    <!-- ============ 3 庄周梦蝶 ============ -->
+    <div class="theme-card hot">
+      <div class="theme-header">
+        <div class="theme-title">庄周梦蝶<span class="rec-badge">首发</span></div>
+        <div class="theme-origin"><strong>出处</strong>《庄子·齐物论》</div>
+      </div>
+      <div class="block-label">诗词排版文字</div>
+      <div class="role-row"><b>封面主字：</b>梦蝶 / 可选「物化」</div>
+      <div class="poem">
+        <span class="use">竖排正文</span>昔者庄周梦为胡蝶，栩栩然胡蝶也，自喻适志与，不知周也。俄然觉，则蘧蘧然周也。不知周之梦为胡蝶与，胡蝶之梦为周与？<span class="src">—— 《庄子·齐物论》</span>
+      </div>
+      <div class="poem">
+        <span class="use">竖排正文</span>锦瑟无端五十弦，一弦一柱思华年。庄生晓梦迷蝴蝶，望帝春心托杜鹃。<span class="src">—— 李商隐《锦瑟》</span>
+      </div>
+      <div class="poem">
+        <span class="use">角落题跋</span>困卧幽窗身化蝶，醉题素壁字栖鸦。<span class="src">—— 陆游《拥炉》</span>
+      </div>
+
+      <div class="block-label">生图提示词</div>
+      <div class="cn-prompt">竖版 A5 封面。古籍书页背景，竖排文字如梦境碎片。一只半透明淡墨蝴蝶叠压在文字之上，边缘虚化模糊，营造梦与醒的朦胧边界。几片梦中花影（鸢尾/芍药淡彩）从底部生长。整体轻盈、虚幻、哲思。</div>
+      <pre>Vertical A5 notebook cover, Chinese neo-classical aesthetic, aged rice-paper background with vertical calligraphy like dream fragments, a semi-transparent ink-wash butterfly overlapping the text with soft blurred edges, faint irises growing from bottom in light gongbi color, dreamy ethereal mood, blurred boundaries between dream and wake, ink-wash texture, muted palette (paper beige, pale ink, soft purple), premium stationery photography, no border, minimalist --ar 2:3 --stylize 90</pre>
+    </div>
+
+    <!-- ============ 4 踏雪寻梅 ============ -->
+    <div class="theme-card hot">
+      <div class="theme-header">
+        <div class="theme-title">踏雪寻梅<span class="rec-badge">首发</span></div>
+        <div class="theme-origin"><strong>出处</strong>宋·卢梅坡 / 林逋</div>
+      </div>
+      <div class="block-label">诗词排版文字</div>
+      <div class="role-row"><b>封面主字：</b>踏雪寻梅 / 可选「暗香」</div>
+      <div class="poem">
+        <span class="use">竖排正文</span>众芳摇落独暄妍，占尽风情向小园。疏影横斜水清浅，暗香浮动月黄昏。<span class="src">—— 林逋《山园小梅》</span>
+      </div>
+      <div class="poem">
+        <span class="use">竖排正文</span>梅雪争春未肯降，骚人阁笔费评章。梅须逊雪三分白，雪却输梅一段香。<span class="src">—— 卢梅坡《雪梅·其一》</span>
+      </div>
+      <div class="poem">
+        <span class="use">角落题跋</span>有梅无雪不精神，有雪无诗俗了人。<span class="src">—— 卢梅坡《雪梅·其二》</span>
+      </div>
+      <div class="poem">
+        <span class="use">内页可印</span>墙角数枝梅，凌寒独自开。遥知不是雪，为有暗香来。<span class="src">—— 王安石《梅花》</span>
+      </div>
+
+      <div class="block-label">生图提示词</div>
+      <div class="cn-prompt">竖版 A5 封面。大片白雪留白背景（米白纸色）。一枝疏朗红梅从底部斜出，花朵朱砂红点染，枝干墨褐。雪痕白点散落。上方留白如雪原。极简、清寂、有张力。</div>
+      <pre>Vertical A5 notebook cover, Chinese neo-classical aesthetic, mostly blank snow-white paper background, a sparse red plum branch entering diagonally from bottom, cinnabar-red blossoms with ink-brown twigs, scattered snow dots, minimalist and serene, strong negative space like snow field, ink-wash texture, muted palette (paper white, cinnabar red, ink), premium stationery photography, no border, minimalist --ar 2:3 --stylize 70</pre>
+    </div>
+
+    <!-- ============ 5 秉烛夜游 ============ -->
+    <div class="theme-card hot">
+      <div class="theme-header">
+        <div class="theme-title">秉烛夜游<span class="rec-badge">首发</span></div>
+        <div class="theme-origin"><strong>出处</strong>《古诗十九首》/ 李白</div>
+      </div>
+      <div class="block-label">诗词排版文字</div>
+      <div class="role-row"><b>封面主字：</b>秉烛夜游 / 可选「夜游」</div>
+      <div class="poem">
+        <span class="use">竖排正文</span>夫天地者，万物之逆旅也；光阴者，百代之过客也。而浮生若梦，为欢几何？古人秉烛夜游，良有以也。<span class="src">—— 李白《春夜宴桃李园序》</span>
+      </div>
+      <div class="poem">
+        <span class="use">竖排正文</span>生年不满百，常怀千岁忧。昼短苦夜长，何不秉烛游！<span class="src">—— 《古诗十九首·生年不满百》</span>
+      </div>
+      <div class="poem">
+        <span class="use">角落题跋</span>况阳春召我以烟景，大块假我以文章。<span class="src">—— 李白《春夜宴桃李园序》</span>
+      </div>
+
+      <div class="block-label">生图提示词</div>
+      <div class="cn-prompt">竖版 A5 封面。暗调底色（深赭石/墨褐），营造夜感。右上角一束暖黄烛光透出，映照一枝海棠花在暗部若隐若现。竖排小字如灯下读书。情绪温暖、私密、浪漫。</div>
+      <pre>Vertical A5 notebook cover, Chinese neo-classical aesthetic, dark background in deep umber and ink, a warm candlelight glow from top-right corner, a begonia branch faintly visible in shadow, vertical small calligraphy like reading by lamplight, intimate romantic night mood, ink-wash texture, muted palette (dark umber, warm yellow glow, begonia pink), premium stationery photography, no border, minimalist --ar 2:3 --stylize 80</pre>
+    </div>
+
+    <!-- ============ 6 曲水流觞 ============ -->
+    <div class="theme-card">
+      <div class="theme-header">
+        <div class="theme-title">曲水流觞</div>
+        <div class="theme-origin"><strong>出处</strong>王羲之《兰亭集序》</div>
+      </div>
+      <div class="block-label">诗词排版文字</div>
+      <div class="role-row"><b>封面主字：</b>流觞 / 可选「兰亭」</div>
+      <div class="poem">
+        <span class="use">竖排正文</span>永和九年，岁在癸丑，暮春之初，会于会稽山阴之兰亭，修禊事也。引以为流觞曲水，列坐其次。虽无丝竹管弦之盛，一觞一咏，亦足以畅叙幽情。<span class="src">—— 王羲之《兰亭集序》</span>
+      </div>
+      <div class="poem">
+        <span class="use">角落题跋</span>仰观宇宙之大，俯察品类之盛。<span class="src">—— 王羲之《兰亭集序》</span>
+      </div>
+      <div class="poem">
+        <span class="use">内页可印</span>流觞曲水无多日，更作新诗继旧游。<span class="src">—— 苏轼《和钱穆父送别》</span>
+      </div>
+
+      <div class="block-label">生图提示词</div>
+      <div class="cn-prompt">竖版 A5 封面。做旧书页背景。一条 S 形水墨溪流贯穿封面，水面浮一只素白酒觞，几丛兰草从溪边生长。竖排文字如水中漂浮诗句。流动、雅集、春意。</div>
+      <pre>Vertical A5 notebook cover, Chinese neo-classical aesthetic, aged rice-paper background, an S-shaped ink-wash stream flowing across the cover with a plain white wine cup floating, clusters of orchid grass growing by the stream, vertical calligraphy like verses floating on water, flowing elegant spring mood, ink-wash texture, muted palette (paper beige, ink, orchid green), premium stationery photography, no border, minimalist --ar 2:3 --stylize 80</pre>
+    </div>
+
+    <!-- ============ 7 月下独酌 ============ -->
+    <div class="theme-card">
+      <div class="theme-header">
+        <div class="theme-title">月下独酌</div>
+        <div class="theme-origin"><strong>出处</strong>唐·李白</div>
+      </div>
+      <div class="block-label">诗词排版文字</div>
+      <div class="role-row"><b>封面主字：</b>对影 / 可选「邀月」</div>
+      <div class="poem">
+        <span class="use">竖排正文</span>花间一壶酒，独酌无相亲。举杯邀明月，对影成三人。月既不解饮，影徒随我身。永结无情游，相期邈云汉。<span class="src">—— 李白《月下独酌·其一》</span>
+      </div>
+      <div class="poem">
+        <span class="use">角落题跋</span>唯愿当歌对酒时，月光长照金樽里。<span class="src">—— 李白《把酒问月》</span>
+      </div>
+      <div class="poem">
+        <span class="use">内页可印</span>明月几时有，把酒问青天。<span class="src">—— 苏轼《水调歌头》</span>
+      </div>
+
+      <div class="block-label">生图提示词</div>
+      <div class="cn-prompt">竖版 A5 封面。淡墨夜空背景。一轮淡月占画面约 1/3，桂树枝影从一侧斜伸。竖排文字如月华倾泻。清冷、浪漫、自洽。</div>
+      <pre>Vertical A5 notebook cover, Chinese neo-classical aesthetic, pale ink night-sky background, a soft moon occupying one third of the cover, an osmanthus branch shadow stretching from one side, vertical calligraphy like moonlight pouring, cool lonely romantic mood, ink-wash texture, muted palette (paper grey, ink, pale gold moon), premium stationery photography, no border, minimalist --ar 2:3 --stylize 80</pre>
+    </div>
+
+    <!-- ============ 8 青梅竹马 ============ -->
+    <div class="theme-card">
+      <div class="theme-header">
+        <div class="theme-title">青梅竹马</div>
+        <div class="theme-origin"><strong>出处</strong>李白《长干行》</div>
+      </div>
+      <div class="block-label">诗词排版文字</div>
+      <div class="role-row"><b>封面主字：</b>青梅 / 可选「两小」</div>
+      <div class="poem">
+        <span class="use">竖排正文</span>妾发初覆额，折花门前剧。郎骑竹马来，绕床弄青梅。同居长干里，两小无嫌猜。<span class="src">—— 李白《长干行》</span>
+      </div>
+      <div class="poem">
+        <span class="use">角落题跋</span>同居长干里，两小无嫌猜。<span class="src">—— 李白《长干行》</span>
+      </div>
+      <div class="poem">
+        <span class="use">内页可印</span>郎骑竹马来，绕床弄青梅。<span class="src">—— 李白《长干行》</span>
+      </div>
+
+      <div class="block-label">生图提示词</div>
+      <div class="cn-prompt">竖版 A5 封面。做旧书页背景。青梅果串从书页上方垂落，翠竹一枝斜倚。竖排小字如儿时信笺。温暖、清新、青涩怀旧。</div>
+      <pre>Vertical A5 notebook cover, Chinese neo-classical aesthetic, aged rice-paper background, a string of green plums hanging from top of the page, a bamboo branch leaning diagonally, vertical small calligraphy like childhood letter, warm fresh nostalgic mood, ink-wash texture, muted palette (paper beige, green plum, bamboo), premium stationery photography, no border, minimalist --ar 2:3 --stylize 80</pre>
+    </div>
+
+    <!-- ============ 9 莼鲈之思 ============ -->
+    <div class="theme-card">
+      <div class="theme-header">
+        <div class="theme-title">莼鲈之思</div>
+        <div class="theme-origin"><strong>出处</strong>《晋书·张翰传》</div>
+      </div>
+      <div class="block-label">诗词排版文字</div>
+      <div class="role-row"><b>封面主字：</b>归思 / 可选「秋风」</div>
+      <div class="poem">
+        <span class="use">竖排正文</span>翰因见秋风起，乃思吴中菰菜、莼羹、鲈鱼脍，曰：人生贵得适志，何能羁宦数千里以要名爵乎！遂命驾而归。<span class="src">—— 《晋书·张翰传》</span>
+      </div>
+      <div class="poem">
+        <span class="use">竖排正文</span>秋风起兮木叶飞，吴江水兮鲈正肥。三千里兮家未归，恨难忘兮心已摧。<span class="src">—— 张翰（传）</span>
+      </div>
+      <div class="poem">
+        <span class="use">角落题跋</span>休说鲈鱼堪脍，尽西风，季鹰归未？<span class="src">—— 辛弃疾《水龙吟·登建康赏心亭》</span>
+      </div>
+
+      <div class="block-label">生图提示词</div>
+      <div class="cn-prompt">竖版 A5 封面。淡墨水面波纹做底纹，一叶小舟与莼菜圆叶浮于水面，几枝芦苇从边缘生长。竖排文字如远方来信。秋意、思乡、淡然。</div>
+      <pre>Vertical A5 notebook cover, Chinese neo-classical aesthetic, faint ink water-ripple background, a tiny leaf boat and round water-chestnut leaves floating, several reeds growing from the edge, vertical calligraphy like a letter from afar, autumn homesick tranquil mood, ink-wash texture, muted palette (paper beige, ink, reed green), premium stationery photography, no border, minimalist --ar 2:3 --stylize 80</pre>
+    </div>
+
+    <!-- ============ 10 梅妻鹤子 ============ -->
+    <div class="theme-card">
+      <div class="theme-header">
+        <div class="theme-title">梅妻鹤子</div>
+        <div class="theme-origin"><strong>出处</strong>宋·林逋</div>
+      </div>
+      <div class="block-label">诗词排版文字</div>
+      <div class="role-row"><b>封面主字：</b>孤山 / 可选「暗香」</div>
+      <div class="poem">
+        <span class="use">竖排正文</span>众芳摇落独暄妍，占尽风情向小园。疏影横斜水清浅，暗香浮动月黄昏。<span class="src">—— 林逋《山园小梅》</span>
+      </div>
+      <div class="poem">
+        <span class="use">角落题跋</span>湖上青山对结庐，坟前修竹亦萧疏。<span class="src">—— 林逋《自作寿堂因书一绝》</span>
+      </div>
+      <div class="poem">
+        <span class="use">内页可印</span>疏影横斜水清浅，暗香浮动月黄昏。<span class="src">—— 林逋《山园小梅》</span>
+      </div>
+
+      <div class="block-label">生图提示词</div>
+      <div class="cn-prompt">竖版 A5 封面。淡墨湖水远山背景。一枝白梅疏朗斜出，一只鹤影以淡墨剪影点睛。竖排文字如隐士手书。清冷、高级、风骨。</div>
+      <pre>Vertical A5 notebook cover, Chinese neo-classical aesthetic, pale ink lake and distant-mountain background, a sparse white plum branch diagonally, a crane silhouette in light ink as accent, vertical calligraphy like a hermit's handwriting, cool refined reclusive mood, ink-wash texture, muted palette (paper white, ink, pale plum), premium stationery photography, no border, minimalist --ar 2:3 --stylize 80</pre>
+    </div>
+
+    <!-- ============ 11 采菊东篱 ============ -->
+    <div class="theme-card">
+      <div class="theme-header">
+        <div class="theme-title">采菊东篱</div>
+        <div class="theme-origin"><strong>出处</strong>陶渊明《饮酒》</div>
+      </div>
+      <div class="block-label">诗词排版文字</div>
+      <div class="role-row"><b>封面主字：</b>东篱 / 可选「悠然」</div>
+      <div class="poem">
+        <span class="use">竖排正文</span>结庐在人境，而无车马喧。问君何能尔？心远地自偏。采菊东篱下，悠然见南山。山气日夕佳，飞鸟相与还。此中有真意，欲辨已忘言。<span class="src">—— 陶渊明《饮酒·其五》</span>
+      </div>
+      <div class="poem">
+        <span class="use">角落题跋</span>晨兴理荒秽，带月荷锄归。<span class="src">—— 陶渊明《归园田居·其三》</span>
+      </div>
+      <div class="poem">
+        <span class="use">内页可印</span>久在樊笼里，复得返自然。<span class="src">—— 陶渊明《归园田居·其一》</span>
+      </div>
+
+      <div class="block-label">生图提示词</div>
+      <div class="cn-prompt">竖版 A5 封面。做旧书页背景。野菊从底部漫出，远处淡墨南山一抹。竖排文字如篱笆上的藤蔓。闲适、田园、慢生活。</div>
+      <pre>Vertical A5 notebook cover, Chinese neo-classical aesthetic, aged rice-paper background, wild chrysanthemums spreading from the bottom, a faint ink distant mountain, vertical calligraphy like vines on a fence, leisurely pastoral slow-life mood, ink-wash texture, muted palette (paper beige, chrysanthemum yellow, ink mountain), premium stationery photography, no border, minimalist --ar 2:3 --stylize 80</pre>
+    </div>
+
+    <!-- ============ 12 一叶知秋 ============ -->
+    <div class="theme-card">
+      <div class="theme-header">
+        <div class="theme-title">一叶知秋</div>
+        <div class="theme-origin"><strong>出处</strong>《淮南子·说山训》</div>
+      </div>
+      <div class="block-label">诗词排版文字</div>
+      <div class="role-row"><b>封面主字：</b>知秋 / 可选「一叶」</div>
+      <div class="poem">
+        <span class="use">竖排正文</span>以小明大，见一叶落而知岁之将暮。<span class="src">—— 《淮南子·说山训》</span>
+      </div>
+      <div class="poem">
+        <span class="use">竖排正文</span>时维九月，序属三秋。潦水尽而寒潭清，烟光凝而暮山紫。<span class="src">—— 王勃《滕王阁序》</span>
+      </div>
+      <div class="poem">
+        <span class="use">角落题跋</span>一叶落而知天下秋。<span class="src">—— 李子卿《听秋声赋》</span>
+      </div>
+      <div class="poem">
+        <span class="use">内页可印</span>梧桐更兼细雨，到黄昏、点点滴滴。<span class="src">—— 李清照《声声慢》</span>
+      </div>
+
+      <div class="block-label">生图提示词</div>
+      <div class="cn-prompt">竖版 A5 封面。一枚大梧桐叶占画面半边，叶脉清晰如时间纹理，叶缘微枯泛黄。竖排文字在叶背若隐若现。敏感、时序、温柔忧伤。</div>
+      <pre>Vertical A5 notebook cover, Chinese neo-classical aesthetic, a large phoenix-tree leaf occupying half the cover with clear veins like texture of time, leaf edge slightly withered and yellowing, vertical calligraphy faintly visible on the leaf back, sensitive seasonal tender-melancholy mood, ink-wash texture, muted palette (paper beige, autumn yellow, ink), premium stationery photography, no border, minimalist --ar 2:3 --stylize 80</pre>
+    </div>
+
+    <!-- ============ 13 杏花春雨 ============ -->
+    <div class="theme-card">
+      <div class="theme-header">
+        <div class="theme-title">杏花春雨</div>
+        <div class="theme-origin"><strong>出处</strong>宋·志南《绝句》</div>
+      </div>
+      <div class="block-label">诗词排版文字</div>
+      <div class="role-row"><b>封面主字：</b>杏雨 / 可选「江南」</div>
+      <div class="poem">
+        <span class="use">竖排正文</span>古木阴中系短篷，杖藜扶我过桥东。沾衣欲湿杏花雨，吹面不寒杨柳风。<span class="src">—— 志南《绝句》</span>
+      </div>
+      <div class="poem">
+        <span class="use">竖排正文</span>小楼一夜听春雨，深巷明朝卖杏花。<span class="src">—— 陆游《临安春雨初霁》</span>
+      </div>
+      <div class="poem">
+        <span class="use">角落题跋</span>杏花春雨江南。<span class="src">—— 虞集《风入松》</span>
+      </div>
+
+      <div class="block-label">生图提示词</div>
+      <div class="cn-prompt">竖版 A5 封面。做旧书页背景。杏花枝从一角探出，淡墨细雨点洒如雾。柳条轻拂。竖排文字如江南烟雨。清新、柔软、治愈。</div>
+      <pre>Vertical A5 notebook cover, Chinese neo-classical aesthetic, aged rice-paper background, an apricot-blossom branch peeking from one corner, faint ink rain dots like mist, a willow twig lightly brushing, vertical calligraphy like Jiangnan drizzle, fresh soft healing mood, ink-wash texture, muted palette (paper beige, apricot pink, willow green), premium stationery photography, no border, minimalist --ar 2:3 --stylize 80</pre>
+    </div>
+
+    <!-- ============ 14 枕书听雨 ============ -->
+    <div class="theme-card">
+      <div class="theme-header">
+        <div class="theme-title">枕书听雨</div>
+        <div class="theme-origin"><strong>出处</strong>宋·李清照</div>
+      </div>
+      <div class="block-label">诗词排版文字</div>
+      <div class="role-row"><b>封面主字：</b>枕书 / 可选「听雨」</div>
+      <div class="poem">
+        <span class="use">竖排正文</span>枕上诗书闲处好，门前风景雨来佳。<span class="src">—— 李清照《摊破浣溪沙》</span>
+      </div>
+      <div class="poem">
+        <span class="use">竖排正文</span>枕上初残柏子香，鸟声帘外已斜阳。小窗坐久浑无赖，闲写《黄庭》一两章。<span class="src">—— 陆游《初夏》</span>
+      </div>
+      <div class="poem">
+        <span class="use">角落题跋</span>枕簟溪堂冷欲秋，断云依水晚来收。<span class="src">—— 辛弃疾《清平乐·博山道中》</span>
+      </div>
+
+      <div class="block-label">生图提示词</div>
+      <div class="cn-prompt">竖版 A5 封面。半卷古书斜置，竹叶从书页间垂落。竖排文字如书签夹在书页。雨痕淡墨点缀。日常、书卷气、治愈。</div>
+      <pre>Vertical A5 notebook cover, Chinese neo-classical aesthetic, a half-open ancient book placed diagonally, bamboo leaves drooping from between the pages, vertical calligraphy like a bookmark between pages, faint ink raindrop accents, daily bookish healing mood, ink-wash texture, muted palette (paper beige, bamboo green, ink), premium stationery photography, no border, minimalist --ar 2:3 --stylize 80</pre>
+    </div>
+
+    <!-- ============ 15 南风入弦 ============ -->
+    <div class="theme-card">
+      <div class="theme-header">
+        <div class="theme-title">南风入弦</div>
+        <div class="theme-origin"><strong>出处</strong>《孔子家语》/ 古琴意象</div>
+      </div>
+      <div class="block-label">诗词排版文字</div>
+      <div class="role-row"><b>封面主字：</b>南风 / 可选「入弦」</div>
+      <div class="poem">
+        <span class="use">竖排正文</span>南风之薰兮，可以解吾民之愠兮；南风之时兮，可以阜吾民之财兮。<span class="src">—— 《孔子家语·辨乐》</span>
+      </div>
+      <div class="poem">
+        <span class="use">竖排正文</span>独坐幽篁里，弹琴复长啸。深林人不知，明月来相照。<span class="src">—— 王维《竹里馆》</span>
+      </div>
+      <div class="poem">
+        <span class="use">角落题跋</span>泠泠七弦上，静听松风寒。<span class="src">—— 刘长卿《听弹琴》</span>
+      </div>
+
+      <div class="block-label">生图提示词</div>
+      <div class="cn-prompt">竖版 A5 封面。做旧书页背景。古琴弦如竖排文字般排列，蕉叶随风从一侧斜出。画面有韵律感。清凉、音乐、闲适夏日。</div>
+      <pre>Vertical A5 notebook cover, Chinese neo-classical aesthetic, aged rice-paper background, guqin strings arranged like vertical calligraphy lines, a banana leaf swaying in wind from one side, rhythmic composition, cool musical leisurely summer mood, ink-wash texture, muted palette (paper beige, banana green, ink), premium stationery photography, no border, minimalist --ar 2:3 --stylize 80</pre>
+    </div>
+
+  </div>
+
+  <div class="section">
+    <div class="section-label">Tips</div>
+    <div class="section-title serif">三、出图与排版建议</div>
+    <div class="card">
+      <div class="card-title">生图落地</div>
+      <p><strong>工具：</strong>Midjourney 直接粘英文 Prompt（加 --ar 2:3）；SD/即梦用中文描述 + 书法 LoRA。</p>
+      <p><strong>文字处理：</strong>AI 生图的中文/书法字常有错字，建议先出「无字植物构图」，再用 PS/AI 把竖排诗词叠加上去——这样文字零错误，也契合你"版式是原创设计"的护城河逻辑。</p>
+      <p><strong>批量：</strong>15 款共用同一套风格锚定，只换主体物象，保证系列视觉统一。</p>
+    </div>
+    <div class="card">
+      <div class="card-title">排版顺序</div>
+      <p>封面主字（书法大字）→ 竖排正文（2-3 段，错落排布）→ 植物主体（前景叠压）→ 角落题跋（出处小字）→ Rimi 最小标识。</p>
+    </div>
+    <div class="note"><strong>首发建议：</strong>先用「蕉窗听雨 + 煮雪烹茶」两款出图测水温（完美对应你发的参考图风格 + 冬季应季），跑通后再批量出其余 13 款。诗词文字已按分层备好，直接取用即可。</div>
+  </div>
+
+</div>
+
+<div class="footer">
+  <div class="serif" style="font-size:16px; color:var(--ink); margin-bottom:6px;">Rimi</div>
+  <div style="font-size:12px; color:var(--green); margin-bottom:8px;">打捞时光私藏之美</div>
+  <div>忆诗随笔系列 · 诗词文案与生图提示词 · 配套《封面典故选题方案》· 2026.09.09</div>
+</div>
+
+</body>
+</html>
